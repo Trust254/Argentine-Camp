@@ -21,6 +21,23 @@ px}.villa small{display:block;color:var(--mut);font-size:9px;margin:6px 0}.villa
 .notify-menu.on{display:block}
 .notify-item{padding:10px;border-bottom:1px solid #edf0f2;cursor:pointer}
 .notify-item:last-child{border-bottom:0}.notify-item b{font-size:11px;color:var(--n)}.notify-item small{display:block;color:var(--mut);font-size:9px;margin-top:4px}
+
+.ai-head{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:10px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,#ffffff,#f2f7f6)}
+.ai-logo{width:48px;height:48px;border-radius:12px;object-fit:contain;background:#fff;border:1px solid #e5eaed;padding:4px}
+.ai-brand-title{font-weight:800;font-size:15px;color:#12283a}
+.ai-brand-sub{font-size:10px;color:#71808b;margin-top:2px}
+.ai-status{margin-left:auto;font-size:9px;padding:6px 8px;border-radius:999px;background:#e8f5ef;color:#08724f;font-weight:700}
+.ai-tools{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0}
+.ai-tools button{font-size:10px;padding:7px 9px}
+.translate-panel{margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd}
+.translate-title{font-weight:800;font-size:12px;margin-bottom:8px}
+.translate-row{display:flex;gap:8px;align-items:center;margin-top:7px}
+.translate-row select,.translate-row textarea{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff}
+.translate-row textarea{resize:vertical;min-height:48px}
+.translate-output{margin-top:8px;padding:10px;border-radius:10px;background:#eef6f3;min-height:24px;font-size:11px;line-height:1.5;white-space:pre-wrap}
+.data-chip{display:inline-block;margin:3px 3px 0 0;padding:4px 7px;border-radius:999px;background:#eef3f6;font-size:9px}
+
+.ai-note{font-size:9px;color:#71808b;line-height:1.45;margin-top:8px}
 .ai-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;border:0;background:var(--g);color:#fff;font-size:22px;box-shadow:0 12px 30px #071b2b35;z-index:90;cursor:pointer}
 .ai-chat{height:310px;overflow:auto;background:#f5f8f9;border:1px solid var(--line);border-radius:14px;padding:12px}
 .ai-msg{max-width:86%;padding:10px 12px;border-radius:13px;margin:7px 0;font-size:11px;line-height:1.55}
@@ -180,7 +197,7 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <div class="field full"><label>Sleeping room</label><input id="rroom" placeholder="Example: GV-03 / Room 302" required></div>
 </div>
 <div id="re" class="error hide"></div><button type="submit" class="btn gold" style="width:100%">Create Guard Account</button>
-</form></div></div><div id="re" class="error hide"></div><button class="btn gold" style="width:100%">Create Guard Account</button></form></div></div>
+</form></div></div>
 <div id="app"><aside class="side" id="side"><div class="sidebrand"><div class="mini">NSS</div><div><b>Al-Nasr Star</b><small>Security & Camp Control</small></div></div><nav class="nav"><label>MAIN MENU</label><button class="active" onclick="go('dashboard',this)">⌂ &nbsp; Dashboard</button><button onclick="go('spaces',this)">▦ &nbsp; Available Spaces</button><button onclick="go('guards',this)">♙ &nbsp; Guards & Residents</button><button onclick="go('villas',this)">⌂ &nbsp; Villas & Rooms</button><button onclick="go('complaints',this)">⚑ &nbsp; Complaints</button><button onclick="go('announcements',this)">🔔 &nbsp; Broadcast</button><button onclick="go('requests',this)">▣ &nbsp; Camp Requests</button><button onclick="go('reports',this)">▤ &nbsp; Reports</button>
 <button id="inboxBtn" onclick="go('inbox',this)">📥 &nbsp; Staff Reports <span class="nav-unread" id="inboxUnread"></span></button>
 <button id="myAccountBtn" onclick="go('myaccount',this)">👤 &nbsp; My Account</button>
@@ -258,10 +275,47 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <div class="welcome"><div><h1>Documents</h1><p id="documentsIntro">CampBoss can share instructions, rosters and other documents with selected staff.</p></div><button id="shareDocumentBtn" class="btn primary" onclick="openM('document')">＋ Share Document</button></div>
 <div class="doc-grid" id="documentGrid"></div>
 </section><section id="p-ai" class="page">
-<div class="welcome"><div><h1>AI Assist</h1><p>Ask the camp assistant about staff, rooms, spaces, documents and portal navigation.</p></div></div>
+<div class="welcome"><div><h1>AI Assist</h1><p>Company-branded assistant for verified portal records and portal actions.</p></div></div>
 <div class="panel">
-<div class="ai-chat" id="aiChat"><div class="ai-msg bot">Hello. I can help you find a staff member by job number, check sleeping rooms and shifts, explain available spaces, show shared documents, or guide you around this portal.</div></div>
-<form onsubmit="askAI(event)" style="display:flex;gap:8px;margin-top:10px"><input id="aiInput" placeholder="Ask e.g. Where does job number 1001 sleep?" required style="flex:1"><button class="btn primary">Ask AI</button></form>
+<div class="ai-head">
+  <img id="aiLogo" class="ai-logo" alt="Al-Nasr Star Security AI logo">
+  <div><div class="ai-brand-title">Al-Nasr Star Security AI</div><div class="ai-brand-sub">Official camp portal assistant • answers are based on current portal data</div></div>
+  <div class="ai-status">● VERIFIED DATA</div>
+</div>
+<div class="ai-tools">
+  <button type="button" class="btn outline" onclick="aiQuick('Open dashboard')">Dashboard</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show available spaces')">Spaces</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show guards')">Guards</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show rooms')">Rooms</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show documents')">Documents</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show reports')">Reports</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Open messages')">Messages</button>
+</div>
+<div class="translate-panel">
+  <div class="translate-title">🌐 Translate Portal & Messages</div>
+  <div class="translate-row">
+    <select id="siteLanguage" aria-label="Portal language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी (Hindi)</option>
+      <option value="bn">বাংলা (Bangladesh)</option>
+      <option value="ne">नेपाली (Nepali)</option>
+      <option value="ar">العربية (Arabic)</option>
+    </select>
+    <button type="button" class="btn outline" onclick="translatePortal()">Translate Portal</button>
+  </div>
+  <div class="translate-row">
+    <textarea id="translateInput" rows="2" placeholder="Type a message to translate..."></textarea>
+  </div>
+  <div class="translate-row">
+    <button type="button" class="btn primary" onclick="translateText()">Translate Text</button>
+    <span id="translateStatus" class="ai-note">Select a language, then translate the portal or text.</span>
+  </div>
+  <div id="translateOutput" class="translate-output"></div>
+</div>
+
+<div class="ai-chat" id="aiChat"><div class="ai-msg bot">Hello. I am the Al-Nasr Star Security AI assistant. I can search the portal records, answer questions using verified data, navigate the portal, and open the correct management forms for you. I will not invent missing information.</div></div>
+<form onsubmit="askAI(event)" style="display:flex;gap:8px;margin-top:10px"><input id="aiInput" autocomplete="off" placeholder="Ask: Where does job number 1001 sleep?" required style="flex:1"><button class="btn primary">Ask AI</button></form>
+<div class="ai-note">Portal actions are permission-controlled. CampBoss-only operations remain restricted to CampBoss. External internet research requires a server/API connection; this browser-only page cannot safely hold an AI API key.</div>
 </div>
 </section><section id="p-inbox" class="page">
 <div class="welcome"><div><h1>Staff Reports</h1><p>Complaints, incidents and information submitted by Security Guards.</p></div></div>
@@ -280,13 +334,14 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <div class="field"><label>Company Job Number</label><input id="gno" inputmode="numeric" pattern="[0-9]+" placeholder="Example: 1234" required></div>
 <div class="field"><label>Phone</label><input id="gp" type="tel" required></div>
 <div class="field"><label>National / Staff ID</label><input id="gnid" required></div>
+<div class="field"><label>Nationality</label><select id="gnationality"><option value="">Not recorded</option><option>Kenyan</option><option>Sudanese</option><option>Bangladeshi</option><option>Indian</option><option>Nepali</option><option>Arab</option><option>Other</option></select></div>
 <div class="field"><label>Password for guard</label><input id="gpass" type="password" minlength="6" required></div>
 <div class="field"><label>Work location</label><select id="ga" onchange="toggleOtherLocation('ga','gother')"><option>Aspire Zone</option><option>Other</option></select></div>
 <div class="field full"><input id="gother" class="hide" placeholder="Specify work location"></div>
 <div class="field"><label>Shift</label><select id="gshift" onchange="toggleCustomShift('gshift','gcustom')"><option>Shift A</option><option>Shift B</option><option>Shift C</option><option>Shift D</option><option>Other</option></select></div>
 <div class="field"><label>Sleeping room</label><input id="groom" placeholder="Example: GV-03 / Room 302" required></div>
 <div class="field full"><input id="gcustom" class="hide" placeholder="Specify shift"></div>
-</div><button type="submit" class="btn primary" style="width:100%">Register Guard</button></form></div></div><button class="btn primary" style="width:100%">Register Guard</button></form></div></div>
+</div><button type="submit" class="btn primary" style="width:100%">Register Guard</button></form></div></div></form></div></div>
 <div class="modal" id="m-space"><div class="modalbox"><div class="modalhead"><h3>Add Accommodation Capacity</h3><button class="close" onclick="closeM('space')">×</button></div><form onsubmit="addSpace(event)"><div class="grid"><div class="field"><label>Category</label><select id="sc"><option>Kenyan Spaces</option><option>Sudanese Spaces</option><option>Asian Spaces</option></select></div><div class="field"><label>Capacity to add</label><input id="sn" type="number" min="1" required></div></div><button class="btn primary" style="width:100%">Add Capacity</button></form></div></div>
 <div class="modal" id="m-room"><div class="modalbox"><div class="modalhead"><h3>Add Room</h3><button class="close" onclick="closeM('room')">×</button></div><form onsubmit="addRoom(event)"><div class="grid"><div class="field"><label>Room</label><input id="rno" required></div><div class="field"><label>Villa</label><select id="rv"></select></div><div class="field"><label>Category</label><select id="rc"><option>Kenyan</option><option>Sudanese</option><option>Asian</option></select></div><div class="field"><label>Capacity</label><input id="rnum" type="number" min="1" value="4" required></div></div><button class="btn primary" style="width:100%">Add Room</button></form></div></div>
 <div class="modal" id="m-complaint"><div class="modalbox"><div class="modalhead"><h3>New Incident Report</h3><button class="close" onclick="closeM('complaint')">×</button></div><form onsubmit="addComplaint(event)"><div class="field"><label>Issue</label><input id="ci" required></div><div class="grid"><div class="field"><label>Reported By</label><input id="cb" required></div><div class="field"><label>Priority</label><select id="cp"><option>Normal</option><option>High</option><option>Critical</option></select></div></div><button class="btn primary" style="width:100%">Submit Report</button></form></div></div>
@@ -428,14 +483,14 @@ function addGuard(e){
  e.preventDefault();
  if(!isBoss())return toast('Only CampBoss can register staff.');
  const name=$('gn').value.trim(), no=$('gno').value.trim(), phone=$('gp').value.trim();
- const nid=$('gnid').value.trim(), password=$('gpass').value;
+ const nid=$('gnid').value.trim(), nationality=$('gnationality').value.trim(), password=$('gpass').value;
  const areaSel=$('ga').value, area=areaSel==='Other'?($('gother').value.trim()||'Other'):areaSel;
  const shiftSel=$('gshift').value, shift=shiftSel==='Other'?($('gcustom').value.trim()||'Other'):shiftSel;
  const room=$('groom').value.trim();
  if(!/^\d+$/.test(no))return toast('Company Job Number must contain numbers only, for example 1234.');
  if(password.length<6)return toast('Guard password must be at least 6 characters.');
  if(d.guards.some(x=>String(x.no).trim()===no))return toast('That company job number already exists.');
- d.guards.push({name,no,phone,area,status:'Active',password,nid,shift,room});
+ d.guards.push({name,no,phone,area,status:'Active',password,nid,nationality:nationality||'Not recorded',shift,room});
  save(); addNotification('New guard registered',name+' was added with company job number '+no+'.','all');
  closeM('guard');e.target.reset();$('gother').classList.add('hide');$('gcustom').classList.add('hide');
  render();toast('Guard registered successfully.');
@@ -688,32 +743,224 @@ function loadAlertSettings(){
  if(s)s.checked=d.alertSettings.sound!==false;if(v)v.checked=d.alertSettings.vibrate!==false;
 }
 function savePortalSettings(){save();toast('Settings saved')}
-function askAI(e){
- e.preventDefault();
- const input=document.getElementById('aiInput'),q=input.value.trim(),low=q.toLowerCase();if(!q)return;
- addAI('me',q);input.value='';
- let answer='';
- const job=(q.match(/[a-z]-?\d{3,}/i)||[])[0];
+
+
+function aiQuick(q){
+ const input=document.getElementById('aiInput');
+ if(input){input.value=q; askAI({preventDefault:()=>{}});}
+}
+function aiGo(page){
+ const map={dashboard:'dashboard',spaces:'spaces',guards:'guards',rooms:'villas',villas:'villas',complaints:'complaints',reports:'complaints',announcements:'announcements',requests:'requests',documents:'documents',messages:'messages',myaccount:'myaccount',settings:'settings',inbox:'inbox',ai:'ai'};
+ const p=map[page]||'dashboard'; go(p); return p;
+}
+function aiNorm(v){return String(v??'').toLowerCase().replace(/\s+/g,' ').trim()}
+function aiField(v){return (v===undefined||v===null||String(v).trim()==='')?'Not recorded':String(v)}
+function aiFindGuard(query){
+ const q=aiNorm(query);
+ const job=(q.match(/(?:job(?:\s+number)?|company\s+job(?:\s+number)?|staff(?:\s+number)?|number)\s*[:#-]?\s*([a-z]?-?\d{2,})/i)||[])[1];
  if(job){
-   const s=d.guards.find(x=>x.no.toLowerCase()===job.toLowerCase());
-   answer=s?`${s.name} (${s.no}) works at ${s.area}, is assigned to ${s.shift||'Shift A'}, and sleeps in ${s.room||'a room not yet assigned'}. Phone: ${s.phone}.`:`I could not find a staff member with job number ${job}.`;
- }else if(low.includes('document')){
-   answer=`There are ${visibleDocumentsCount()} document(s) available to this account. Open Documents to view or download them.`;
- }else if(low.includes('space')||low.includes('available')){
-   const[t,o,a]=totals();answer=`The camp has ${t} total spaces, ${o} occupied and ${a} available.`;
- }else if(low.includes('room')){
-   answer=`There are ${d.rooms.length} registered rooms. You can open Villas & Rooms to inspect capacity and occupancy.`;
- }else if(low.includes('notification')){
-   answer=`You have ${visibleNotifications().length} visible notification(s). The bell at the top shows them, with sound and vibration alerts when enabled.`;
- }else if(low.includes('campboss')||low.includes('delete')){
-   answer=isBoss()?'You are signed in as CampBoss. You can manage staff, documents, spaces, rooms, reports, requests and announcements, including deleting records.':'Only CampBoss has deletion permissions.';
- }else{
-   answer='I can help with staff job numbers, sleeping rooms, shifts, locations, available spaces, documents, notifications and portal navigation. Try: “Where does job number 1234 sleep?”';
+   const exact=d.guards.find(x=>aiNorm(x.no)===aiNorm(job) || aiNorm(x.no).replace(/^g-/,'')===aiNorm(job).replace(/^g-/,''));
+   if(exact)return exact;
+ }
+ return d.guards.find(x=>q.includes(aiNorm(x.name)))||null;
+}
+function aiGuardDetails(s){
+ const fields=[
+   ['Full name',s.name],['Company job number',s.no],['Mobile number',s.phone],
+   ['Work location',s.area],['Shift',s.shift],['Sleeping room',s.room],
+   ['Nationality',s.nationality||s.nationalityName||s.country],['Staff/National ID',s.nid],
+   ['Status',s.status]
+ ];
+ return fields.map(([k,v])=>`${k}: ${aiField(v)}`).join('\n');
+}
+function aiSearchAll(q){
+ const needle=aiNorm(q);
+ const hits=[];
+ (d.guards||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Staff',item:x})});
+ (d.rooms||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Room',item:x})});
+ (d.spaces||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Space',item:x})});
+ (d.documents||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Document',item:x})});
+ (d.complaints||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Report',item:x})});
+ (d.ann||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Announcement',item:x})});
+ (d.requests||[]).forEach(x=>{const hay=aiNorm(Object.values(x).join(' ')); if(hay.includes(needle))hits.push({type:'Request',item:x})});
+ return hits.slice(0,12);
+}
+function aiPageName(low){
+ if(low.includes('dashboard')||low.includes('home'))return 'dashboard';
+ if(low.includes('space'))return 'spaces';
+ if(low.includes('guard')||low.includes('staff'))return 'guards';
+ if(low.includes('room')||low.includes('villa'))return 'villas';
+ if(low.includes('complaint')||low.includes('incident')||low.includes('report'))return 'complaints';
+ if(low.includes('broadcast')||low.includes('announcement'))return 'announcements';
+ if(low.includes('request'))return 'requests';
+ if(low.includes('document'))return 'documents';
+ if(low.includes('message'))return 'messages';
+ if(low.includes('notification'))return 'settings';
+ if(low.includes('account')||low.includes('profile'))return 'myaccount';
+ if(low.includes('setting'))return 'settings';
+ return '';
+}
+function aiOpenForm(low){
+ if(low.includes('register guard')||low.includes('add guard')||low.includes('create guard')){
+   if(!isBoss())return 'Only CampBoss can register a guard.';
+   openM('guard'); return 'I opened Register Security Guard. Nationality is now included in the staff record.';
+ }
+ if(low.includes('add space')||low.includes('capacity')){if(!isBoss())return 'Only CampBoss can change accommodation capacity.';openM('space');return 'I opened Add Accommodation Capacity.';}
+ if(low.includes('add room')||low.includes('create room')){if(!isBoss())return 'Only CampBoss can add rooms.';openM('room');return 'I opened Add Room.';}
+ if(low.includes('new complaint')||low.includes('new incident')){openM('complaint');return 'I opened the incident report form.';}
+ if(low.includes('new announcement')||low.includes('broadcast')){if(!isBoss())return 'Only CampBoss can publish a camp-wide broadcast.';openM('announcement');return 'I opened the broadcast form.';}
+ if(low.includes('new request')||low.includes('camp request')){openM('request');return 'I opened the camp request form.';}
+ return '';
+}
+function aiSummary(){
+ const[t,o,a]=totals();
+ return `Verified portal summary:\n• Guards: ${d.guards.length}\n• Rooms: ${d.rooms.length}\n• Spaces: ${t} total, ${o} occupied, ${a} available\n• Documents visible: ${visibleDocumentsCount()}\n• Unread notifications: ${visibleNotifications().length}`;
+}
+function askAI(e){
+ if(e&&e.preventDefault)e.preventDefault();
+ const input=document.getElementById('aiInput'),q=(input?.value||'').trim(),low=aiNorm(q);
+ if(!q)return;
+ addAI('me',q); if(input)input.value='';
+ let answer='';
+
+ // Exact navigation.
+ const page=aiPageName(low);
+ if(/^(open|go to|take me to|view)\b/.test(low) && page){
+   answer=`Opened ${aiGo(page)}.`;
+ }
+
+ // Staff lookup and detailed identity record.
+ if(!answer){
+   const s=aiFindGuard(q);
+   if(s){
+     answer=`I found the staff record for ${s.name}.\n\n${aiGuardDetails(s)}`;
+     if(low.includes('open')||low.includes('view')||low.includes('show'))aiGo('guards');
+   }else if(/(?:job(?:\s+number)?|company\s+job|staff\s+(?:number|id))\s*[:#-]?\s*[a-z]?-?\d+/i.test(q)){
+     answer='I could not find that company job number in the current portal data. Check the number and try again.';
+   }
+ }
+
+ // Direct requests for a specific field.
+ if(!answer && (low.includes('who is')||low.includes('mobile')||low.includes('phone')||low.includes('sleeps')||low.includes('sleeping room')||low.includes('shift')||low.includes('nationality'))){
+   const s=aiFindGuard(q);
+   if(s) answer=aiGuardDetails(s);
+   else answer='Please provide the staff name or company job number. I will search the current staff records and return only fields that are actually recorded.';
+ }
+
+ if(!answer && (low.includes('summary')||low.includes('overview')||low.includes('how many'))){
+   answer=aiSummary();
+ }
+
+ if(!answer && (low.includes('available')||low.includes('capacity')||low.includes('space'))){
+   const[t,o,a]=totals();
+   const details=d.spaces.map(x=>`${x.name}: ${x.total-x.occupied} available of ${x.total}`).join('; ');
+   answer=`Verified accommodation data:\n${details||'No space categories recorded.'}\nTotal: ${t} • Occupied: ${o} • Available: ${a}`;
+   if(low.includes('show')||low.includes('open'))aiGo('spaces');
+ }
+
+ if(!answer && low.includes('room')){
+   const availableRooms=d.rooms.filter(x=>Number(x.occ||0)<Number(x.cap||0));
+   answer=`Registered rooms: ${d.rooms.length}\nRooms with remaining capacity: ${availableRooms.length}\n${d.rooms.slice(0,20).map(x=>`${x.villa||'Villa'} / Room ${x.room}: ${x.occ||0}/${x.cap||0} occupied, category ${x.cat||'Not recorded'}`).join('\n')}`;
+   if(low.includes('show')||low.includes('open'))aiGo('villas');
+ }
+
+ if(!answer && low.includes('document')){
+   answer=`There are ${visibleDocumentsCount()} document(s) visible to this account.`;
+   if(low.includes('show')||low.includes('open'))aiGo('documents');
+ }
+
+ if(!answer && (low.includes('notification')||low.includes('alert'))){
+   answer=`There are ${visibleNotifications().length} unread notification(s) visible to this account.`;
+   if(low.includes('show')||low.includes('open'))aiGo('settings');
+ }
+
+ if(!answer && (low.includes('who am i')||low.includes('my account')||low.includes('my role'))){
+   answer=`Signed-in account:\nName: ${aiField(user?.name)}\nCompany job number: ${aiField(user?.no)}\nRole: ${aiField(user?.role)}`;
+ }
+
+ // Generic exact search across portal datasets.
+ if(!answer && (low.startsWith('search ')||low.startsWith('find ')||low.startsWith('look for '))){
+   const term=q.replace(/^(search|find|look for)\s+/i,'').trim();
+   const hits=aiSearchAll(term);
+   if(hits.length){
+     answer=`I found ${hits.length} matching record(s):\n`+hits.map(h=>{
+       const x=h.item;
+       if(h.type==='Staff')return `• Staff: ${aiField(x.name)} — Job ${aiField(x.no)} — Phone ${aiField(x.phone)} — Room ${aiField(x.room)} — Shift ${aiField(x.shift)} — Nationality ${aiField(x.nationality||x.country)}`;
+       return `• ${h.type}: ${Object.entries(x).slice(0,6).map(([k,v])=>`${k}=${aiField(v)}`).join(' | ')}`;
+     }).join('\n');
+   }else answer=`No matching portal record was found for “${term}”.`;
+ }
+
+ if(!answer){
+   const formAnswer=aiOpenForm(low);
+   if(formAnswer)answer=formAnswer;
+ }
+
+ if(!answer && (low.includes('delete')||low.includes('remove'))){
+   answer=isBoss()?'Deletion is permission-controlled. Tell me exactly which record to remove, for example “delete incident INC-1042”, and I will locate the record first.':'Only CampBoss has permission to delete portal records.';
+ }
+
+ if(!answer && (low.startsWith('search web')||low.startsWith('web search')||low.startsWith('search the internet'))){
+   const term=q.replace(/^(search web|web search|search the internet)\s*/i,'').trim();
+   if(term){window.open('https://www.google.com/search?q='+encodeURIComponent(term),'_blank','noopener');answer=`I opened a web search for “${term}”. External results are not treated as verified camp records.`;}
+   else answer='Tell me what you want to search for on the internet.';
+ }
+
+ if(!answer){
+   answer='I could not find an exact match. I will not guess. Try a company job number, staff name, “mobile number for job 1001”, “where does job 1001 sleep”, “what shift does job 1001 work”, “nationality of job 1001”, “search documents”, or “show available spaces”.';
  }
  addAI('bot',answer);
 }
-function addAI(who,msg){const c=document.getElementById('aiChat');if(!c)return;const d=document.createElement('div');d.className='ai-msg '+who;d.textContent=msg;c.appendChild(d);c.scrollTop=c.scrollHeight}
+function addAI(who,msg){
+ const c=document.getElementById('aiChat');if(!c)return;
+ const wrap=document.createElement('div');wrap.className='ai-msg '+who;
+ if(who==='bot'){
+   const logo=document.getElementById('aiLogo');
+   wrap.innerHTML=(logo&&logo.src?'<img src="'+logo.src+'" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;border-radius:5px">':'')+escapeHTML(msg).replace(/\n/g,'<br>');
+ }else wrap.textContent=msg;
+ c.appendChild(wrap);c.scrollTop=c.scrollHeight;
+}
 function visibleDocumentsCount(){return d.documents.filter(x=>isBoss()||x.sharedTo.includes('ALL')||x.sharedTo.includes(user?.no)).length}
+
+async function translateText(){
+ const input=document.getElementById('translateInput'),out=document.getElementById('translateOutput'),status=document.getElementById('translateStatus');
+ const text=(input?.value||'').trim(),lang=document.getElementById('siteLanguage')?.value||'en';
+ if(!text){if(status)status.textContent='Enter text to translate.';return;}
+ if(lang==='en'){if(out)out.textContent=text;if(status)status.textContent='English selected.';return;}
+ if(status)status.textContent='Translating…';
+ try{
+   const url='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl='+encodeURIComponent(lang)+'&dt=t&q='+encodeURIComponent(text);
+   const res=await fetch(url);
+   if(!res.ok)throw new Error('Translation service unavailable');
+   const data=await res.json();
+   const translated=(data[0]||[]).map(x=>x[0]||'').join('');
+   if(out)out.textContent=translated||'No translation returned.';
+   if(status)status.textContent='Translation completed.';
+ }catch(err){
+   if(out)out.textContent='Translation service could not be reached from this browser. The portal language selector can still translate the page when Google Translate is available.';
+   if(status)status.textContent='Translation service unavailable.';
+ }
+}
+function translatePortal(){
+ const lang=document.getElementById('siteLanguage')?.value||'en';
+ if(lang==='en'){location.reload();return;}
+ // Use the official Google Translate page translator when available.
+ if(typeof google!=='undefined' && google.translate && google.translate.TranslateElement){
+   const select=document.querySelector('.goog-te-combo');
+   if(select){select.value=lang;select.dispatchEvent(new Event('change'));return;}
+ }
+ // Fallback: open Google Translate for this page.
+ const target=encodeURIComponent(location.href);
+ window.open('https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(lang)+'&u='+target,'_blank','noopener');
+}
+function googleTranslateElementInit(){
+ new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'hi,bn,ne,ar',autoDisplay:false},'google_translate_element');
+}
+function initAILogo(){
+ const target=document.getElementById('aiLogo'); if(!target)return;
+ const source=document.querySelector('img.company-logo');
+ if(source&&source.src)target.src=source.src; else target.style.display='none';
+}
 function pollNotifications(){
  if(!user)return;
  const fresh=JSON.parse(localStorage.getItem(K)||'null');if(!fresh)return;
@@ -728,5 +975,8 @@ window.addEventListener('error',function(e){console.error('Portal error:',e.erro
 window.addEventListener('unhandledrejection',function(e){console.error('Portal rejection:',e.reason);});
 
 
-addEventListener('load',()=>{if(sessionStorage.user){try{start(JSON.parse(sessionStorage.user))}catch(e){sessionStorage.clear()}}});
-</script></body></html>
+addEventListener('load',()=>{initAILogo();if(sessionStorage.user){try{start(JSON.parse(sessionStorage.user))}catch(e){sessionStorage.clear()}}});
+</script>
+<div id="google_translate_element" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>
