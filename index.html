@@ -17,11 +17,12 @@ px}.villa small{display:block;color:var(--mut);font-size:9px;margin:6px 0}.villa
 .notify-wrap{position:relative;display:inline-block;margin-right:7px}
 .notify-btn{width:40px;height:40px;border:1px solid var(--line);background:#fff;border-radius:11px;cursor:pointer;font-size:18px;position:relative}
 .notify-count{position:absolute;right:-3px;top:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:20px;background:#c93636;color:#fff;font-size:9px;font-weight:900;display:grid;place-items:center}
-.notify-menu{position:absolute;right:0;top:47px;width:min(360px,88vw);background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 18px 45px #071b2b25;padding:12px;display:none;z-index:150}
-.notify-menu.on{display:block}
-.notify-item{padding:10px;border-bottom:1px solid #edf0f2;cursor:pointer}
+.notify-menu{position:fixed;left:50%;right:auto;top:76px;transform:translateX(-50%);width:min(420px,calc(100vw - 28px));max-height:min(70vh,520px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 22px 55px #071b2b35;padding:14px;display:none;z-index:10050}
+.notify-menu.on{display:block;animation:notifyIn .18s ease-out}@keyframes notifyIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+.notify-item{padding:12px 10px;border-bottom:1px solid #edf0f2;cursor:pointer;border-radius:10px}.notify-item:hover{background:#f5f8f9}
 .notify-item:last-child{border-bottom:0}.notify-item b{font-size:11px;color:var(--n)}.notify-item small{display:block;color:var(--mut);font-size:9px;margin-top:4px}
 
+@media(max-width:750px){.notify-menu{top:72px;width:calc(100vw - 24px);max-height:68vh}.notify-btn{width:44px;height:44px}.notify-count{right:-2px;top:-4px;min-width:20px;height:20px;font-size:10px}}
 .ai-head{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:10px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,#ffffff,#f2f7f6)}
 .ai-logo{width:48px;height:48px;border-radius:12px;object-fit:contain;background:#fff;border:1px solid #e5eaed;padding:4px}
 .ai-brand-title{font-weight:800;font-size:15px;color:#12283a}
@@ -29,14 +30,6 @@ px}.villa small{display:block;color:var(--mut);font-size:9px;margin:6px 0}.villa
 .ai-status{margin-left:auto;font-size:9px;padding:6px 8px;border-radius:999px;background:#e8f5ef;color:#08724f;font-weight:700}
 .ai-tools{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0}
 .ai-tools button{font-size:10px;padding:7px 9px}
-.translate-panel{margin:10px 0;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd}
-.translate-title{font-weight:800;font-size:12px;margin-bottom:8px}
-.translate-row{display:flex;gap:8px;align-items:center;margin-top:7px}
-.translate-row select,.translate-row textarea{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff}
-.translate-row textarea{resize:vertical;min-height:48px}
-.translate-output{margin-top:8px;padding:10px;border-radius:10px;background:#eef6f3;min-height:24px;font-size:11px;line-height:1.5;white-space:pre-wrap}
-.data-chip{display:inline-block;margin:3px 3px 0 0;padding:4px 7px;border-radius:999px;background:#eef3f6;font-size:9px}
-
 .ai-note{font-size:9px;color:#71808b;line-height:1.45;margin-top:8px}
 .ai-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;border:0;background:var(--g);color:#fff;font-size:22px;box-shadow:0 12px 30px #071b2b35;z-index:90;cursor:pointer}
 .ai-chat{height:310px;overflow:auto;background:#f5f8f9;border:1px solid var(--line);border-radius:14px;padding:12px}
@@ -162,4 +155,810 @@ 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
-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
+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" alt="NSS Company Logo"><h1>Al Nasr Star Security</h1><p>Argentine Camp Management Portal</p></div>
+<div class="tabs"><button type="button" id="lt" class="on" onclick="authTab('login')">Login</button><button type="button" id="rt" onclick="authTab('register')">Create Guard Account</button></div>
+
+<form id="lf" onsubmit="handleLogin(event)">
+<div class="field"><label>Who are you?</label><select id="role"><option value="boss">CampBoss / Management</option><option value="guard">Security Guard</option></select></div>
+<div class="field"><label>Company Job Number</label><input id="lid" name="login_number" inputmode="numeric" pattern="[0-9]+" required autocomplete="username" placeholder="Example: 1234"></div>
+<div class="field"><label>Password</label><input id="lp" name="login_password" type="password" required autocomplete="current-password" placeholder="Enter password"></div>
+<div id="le" class="error hide"></div><button type="submit" class="btn primary" style="width:100%">Sign in</button>
+<div class="hint">Security guards must create an account first, then sign in using their company job number and password.</div>
+</form>
+
+<form id="rf" class="hide" onsubmit="register(event)">
+<div class="grid">
+<div class="field"><label>Full name</label><input id="rn" required></div>
+<div class="field"><label>Phone</label><input id="rp" type="tel" required></div>
+<div class="field"><label>National / Staff ID</label><input id="ri" required></div>
+<div class="field"><label>Company Job Number</label><input id="rg" inputmode="numeric" pattern="[0-9]+" required placeholder="Example: 1234"></div>
+<div class="field"><label>Password</label><input id="rpass" type="password" minlength="6" required></div>
+<div class="field"><label>Confirm password</label><input id="rpass2" type="password" required></div>
+<div class="field"><label>Work location</label><select id="ra" onchange="toggleOtherLocation('ra','rother')"><option>Aspire Zone</option><option>Other</option></select></div>
+<div class="field"><label>Shift</label><select id="rshift" onchange="toggleCustomShift('rshift','rcustom')"><option>Shift A</option><option>Shift B</option><option>Shift C</option><option>Shift D</option><option>Other</option></select></div>
+<div class="field full"><input id="rother" class="hide" placeholder="Specify work location"></div>
+<div class="field full"><input id="rcustom" class="hide" placeholder="Specify shift"></div>
+<div class="field full"><label>Sleeping room</label><input id="rroom" placeholder="Example: GV-03 / Room 302" required></div>
+</div>
+<div id="re" class="error hide"></div><button type="submit" class="btn gold" style="width:100%">Create Guard Account</button>
+</form></div></div>
+<div id="app"><aside class="side" id="side"><div class="sidebrand"><div class="mini">NSS</div><div><b>Al-Nasr Star</b><small>Security & Camp Control</small></div></div><nav class="nav"><label>MAIN MENU</label><button class="active" onclick="go('dashboard',this)">⌂ &nbsp; Dashboard</button><button onclick="go('spaces',this)">▦ &nbsp; Available Spaces</button><button onclick="go('guards',this)">♙ &nbsp; Guards & Residents</button><button onclick="go('villas',this)">⌂ &nbsp; Villas & Rooms</button><button onclick="go('complaints',this)">⚑ &nbsp; Complaints</button><button onclick="go('announcements',this)">🔔 &nbsp; Broadcast</button><button onclick="go('requests',this)">▣ &nbsp; Camp Requests</button><button onclick="go('reports',this)">▤ &nbsp; Reports</button>
+<button id="inboxBtn" onclick="go('inbox',this)">📥 &nbsp; Staff Reports <span class="nav-unread" id="inboxUnread"></span></button>
+<button id="myAccountBtn" onclick="go('myaccount',this)">👤 &nbsp; My Account</button>
+<button id="messagesBtn" onclick="go('messages',this)">💬 &nbsp; Messages <span class="nav-unread" id="navUnread"></span></button>
+<button onclick="go('documents',this)">▤ &nbsp; Documents</button>
+<button onclick="go('ai',this)">✦ &nbsp; AI Assist</button><label style="display:block;margin-top:15px">ADMINISTRATION</label><button id="usersBtn" onclick="go('users',this)">⚙ &nbsp; Users & Roles</button><button onclick="go('settings',this)">◉ &nbsp; Settings</button></nav><div class="profile"><div class="avatar" id="av">CB</div><div><b id="un">CampBoss</b><small id="ur">Administrator</small></div></div></aside><main class="main"><header class="top"><div style="display:flex;align-items:center;gap:10px"><button class="mobile btn outline" onclick="side.classList.toggle('open')">☰</button><h2 id="title">Command Dashboard</h2></div><div style="display:flex;align-items:center;gap:8px"><div class="notify-wrap"><button class="notify-btn" id="notifyBell" onclick="toggleNotifications()" title="Notifications">🔔<span class="notify-count" id="notifyCount">0</span></button><div class="notify-menu" id="notifyMenu"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>Notifications</b><button class="btn outline" style="padding:5px 8px;font-size:9px" onclick="markNotificationsRead()">Mark all read</button></div><div id="notifyHint" style="font-size:9px;color:#71808b;margin:6px 0 8px">No new updates</div><div id="notifyList"></div></div></div><span class="badge" id="pill">CAMPBOSS</span><button class="btn outline" onclick="logout()">Logout</button></div></header><div class="content">
+<section id="p-dashboard" class="page on"><div class="welcome"><div><h1>Camp Command Dashboard</h1><p>Live view of security, accommodation capacity and Kenyan, Sudanese and Asian spaces.</p></div><button class="btn primary" onclick="openM('guard')">＋ Register Guard</button></div><div class="cards"><div class="card"><div class="ico">⌂</div><div class="num" id="total">150</div><div class="lab">Total Spaces</div></div><div class="card"><div class="ico">✓</div><div class="num" id="occ">87</div><div class="lab">Occupied Spaces</div></div><div class="card"><div class="ico">□</div><div class="num" id="avail">63</div><div class="lab">Available Spaces</div></div><div class="card"><div class="ico">!</div><div class="num" id="openCount">0</div><div class="lab">Open Reports</div></div></div><div class="panel"><div class="head"><div><h3>Available Space by Category</h3><p>Clear capacity view for allocation.</p></div><button class="btn outline" onclick="go('spaces')">Manage spaces →</button></div><div class="spaces" id="spaceCards"></div></div><div class="two"><div class="panel"><div class="head"><div><h3>Accommodation Zones</h3><p>Tap a villa to filter its rooms.</p></div></div><div class="villas" id="villaCards"></div></div><div class="panel"><div class="head"><div><h3>Recent Activity</h3><p>Latest portal events.</p></div></div><div class="activity" id="activity"></div></div></div></section>
+<section id="p-spaces" class="page"><div class="welcome"><div><h1>Available Spaces</h1><p>Kenyan, Sudanese and Asian accommodation capacity.</p></div><button class="btn gold" onclick="openM('space')">＋ Add Capacity</button></div><div class="panel"><div class="spaces" id="spaceCards2"></div></div><div class="panel"><div class="head"><h3>Space Allocation Register</h3></div><div class="tablewrap"><table class="table"><thead><tr><th>Category</th><th>Total</th><th>Occupied</th><th>Available</th><th>Status</th></tr></thead><tbody id="spaceTable"></tbody></table></div></div></section>
+<section id="p-guards" class="page"><div class="welcome"><div><h1>Guards & Residents</h1><p>Registered security personnel and their assigned areas.</p></div><button class="btn primary" onclick="openM('guard')">＋ Add Guard</button></div><div class="panel"><input id="gs" placeholder="Search guards..." oninput="renderGuards()"><div class="tablewrap" style="margin-top:15px"><table class="table"><thead><tr><th>Name</th><th>Number</th><th>Phone</th><th>Area</th><th>Status</th></tr></thead><tbody id="guardTable"></tbody></table></div></div></section>
+<section id="p-villas" class="page"><div class="welcome"><div><h1>Villas & Rooms</h1><p>Monitor room capacity and occupancy.</p></div><button class="btn primary" onclick="openM('room')">＋ Add Room</button></div><div class="panel"><div class="villas" id="villaList"></div></div><div class="panel"><div class="head"><div><h3>Room Register</h3><p id="filter">All rooms</p></div></div><div class="tablewrap"><table class="table"><thead><tr><th>Room</th><th>Villa</th><th>Category</th><th>Capacity</th><th>Occupied</th><th>Status</th><th>Action</th></tr></thead><tbody id="roomTable"></tbody></table></div></div></section>
+<section id="p-complaints" class="page"><div class="welcome"><div><h1>Complaints & Incidents</h1><p>Security reports requiring attention.</p></div><button class="btn primary" onclick="openM('complaint')">＋ New Report</button></div><div class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Reference</th><th>Issue</th><th>Reported By</th><th>Priority</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody id="complaintTable"></tbody></table></div></div></section>
+<section id="p-announcements" class="page"><div class="welcome"><div><h1>🔔 Broadcast & Announcements</h1><p>Camp-wide notices and instructions. New broadcasts appear in the notification bell.</p></div><button class="btn primary" onclick="openM('announcement')">🔔 New Broadcast</button></div><div id="announcements"></div></section>
+<section id="p-requests" class="page"><div class="welcome"><div><h1>Camp Requests</h1><p>Review staff requests and record the response or action taken.</p></div><button class="btn primary" onclick="openM('request')">＋ New Request</button></div><div class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Request</th><th>By</th><th>Category</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead><tbody id="requestTable"></tbody></table></div></div><div id="requestDetail"></div></section>
+<section id="p-reports" class="page"><div class="welcome"><div><h1>Reports</h1><p>Accommodation summary by nationality.</p></div><button class="btn gold" onclick="window.print()">Print / Save PDF</button></div><div class="panel" id="report"></div></section>
+<section id="p-users" class="page">
+<div class="welcome"><div><h1>Staff Command Directory</h1><p>All registered security staff are visible here. Search using only the company job number.</p></div><button class="btn primary" onclick="openM('guard')">＋ Register Staff</button></div>
+<div class="panel">
+<div class="head"><div><h3>Find a staff member</h3><p>Enter a company job number such as 1234.</p></div></div>
+<div style="display:flex;gap:10px"><input id="staffJobSearch" placeholder="Job number only" style="flex:1"><button class="btn primary" onclick="searchStaffByJob()">Search Staff</button><button class="btn outline" onclick="document.getElementById('staffJobSearch').value='';document.getElementById('staffResult').innerHTML=''">Clear</button></div>
+<div id="staffResult"></div>
+</div>
+<div class="panel"><div class="head"><div><h3>All Registered Staff</h3><p>Name, phone, job number, work location, shift and sleeping room.</p></div></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Name</th><th>Job Number</th><th>Phone</th><th>Location</th><th>Shift</th><th>Sleeping Room</th><th>Action</th></tr></thead><tbody id="userTable"></tbody></table></div></div>
+</section>
+<section id="p-myaccount" class="page">
+<div class="welcome">
+ <div><h1>My Account</h1><p>Your personal security staff information. You cannot view other staff records.</p></div>
+</div>
+<div class="panel">
+ <div class="head"><div><h3>My Staff Profile</h3><p>Only your own registered information is shown here.</p></div><span class="badge">PRIVATE</span></div>
+ <div id="myProfile"></div>
+</div>
+<div class="panel" style="margin-top:14px">
+ <div class="head"><div><h3>Report to CampBoss</h3><p>Send a complaint, incident or important camp information directly to CampBoss.</p></div></div>
+ <form onsubmit="sendGuardReport(event)">
+  <div class="field"><label>Type</label><select id="grType"><option>Complaint</option><option>Incident</option><option>Maintenance</option><option>Security Information</option><option>Other</option></select></div>
+  <div class="field"><label>Subject</label><input id="grSubject" required placeholder="Short subject"></div>
+  <div class="field"><label>Message</label><textarea id="grMessage" rows="4" required placeholder="Explain what CampBoss needs to know"></textarea></div>
+  <div class="field"><label>Photo / file (optional)</label><input id="grFile" type="file" accept="image/*,.pdf,.doc,.docx,.txt"></div>
+  <button class="btn primary">Send to CampBoss</button>
+ </form>
+</div>
+<div class="panel" style="margin-top:14px">
+ <div class="head"><div><h3>My Requests</h3><p>Ask CampBoss for anything you need. When CampBoss replies, you will receive a bell notification with sound and vibration.</p></div></div>
+ <form onsubmit="sendGuardRequest(event)">
+  <div class="grid"><div class="field"><label>Request type</label><select id="myReqType"><option>Accommodation</option><option>Maintenance</option><option>Duty / Shift</option><option>Security</option><option>Other</option></select></div><div class="field"><label>Subject</label><input id="myReqSubject" required placeholder="What do you need?"></div></div>
+  <div class="field"><label>Request details</label><textarea id="myReqMessage" rows="3" required placeholder="Explain your request"></textarea></div>
+  <button class="btn primary">Send Request to CampBoss</button>
+ </form>
+ <div id="myRequests" style="margin-top:14px"></div>
+</div>
+<div class="panel" style="margin-top:14px">
+ <div class="head"><div><h3>My Documents</h3><p>Documents shared with your account.</p></div></div>
+ <div id="myDocuments"></div>
+</div>
+</section><section id="p-messages" class="page">
+<div class="welcome">
+ <div><h1>Messages & Notifications</h1><p>CampBoss and Security Guards can send private messages, files and images to each other.</p></div>
+</div>
+<div class="message-grid">
+ <div class="user-list" id="messageUsers"></div>
+ <div class="chatbox">
+  <div class="chat-head" id="chatHead"><b>Select a user</b><div style="font-size:9px;color:#71808b">Choose a staff member to start a conversation.</div></div>
+  <div class="chat-messages" id="chatMessages"><div style="font-size:10px;color:#71808b;padding:10px">Your messages will appear here.</div></div>
+  <div class="message-compose">
+   <form onsubmit="sendMessage(event)" style="display:flex;gap:7px;align-items:center">
+    <input id="messageText" placeholder="Write a message..." style="flex:1">
+    <input id="messageFile" type="file" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt" style="max-width:180px;font-size:9px">
+    <button class="btn primary">Send</button>
+   </form>
+  </div>
+ </div>
+</div>
+</section><section id="p-documents" class="page">
+<div class="welcome"><div><h1>Documents</h1><p id="documentsIntro">CampBoss can share instructions, rosters and other documents with selected staff.</p></div><button id="shareDocumentBtn" class="btn primary" onclick="openM('document')">＋ Share Document</button></div>
+<div class="doc-grid" id="documentGrid"></div>
+</section><section id="p-ai" class="page">
+<div class="welcome"><div><h1>AI Assist</h1><p>Company-branded assistant for verified portal records and portal actions.</p></div></div>
+<div class="panel">
+<div class="ai-head">
+  <img id="aiLogo" class="ai-logo" alt="Al-Nasr Star Security AI logo">
+  <div><div class="ai-brand-title">Al-Nasr Star Security AI</div><div class="ai-brand-sub">Official camp portal assistant • answers are based on current portal data</div></div>
+  <div class="ai-status">● VERIFIED DATA</div>
+</div>
+<div class="ai-tools">
+  <button type="button" class="btn outline" onclick="aiQuick('Open dashboard')">Dashboard</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show available spaces')">Spaces</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show guards')">Guards</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show rooms')">Rooms</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show documents')">Documents</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Show reports')">Reports</button>
+  <button type="button" class="btn outline" onclick="aiQuick('Open messages')">Messages</button><button type="button" class="btn gold" onclick="aiStartRegistration()">＋ Register Staff with AI</button><select id="aiLanguage" onchange="setAILanguage(this.value)" style="padding:8px;border:1px solid #dfe6ea;border-radius:10px;font-size:10px"><option value="en">English</option><option value="hi">Hindi</option><option value="bn">বাংলা / Bengali</option><option value="ne">नेपाली / Nepali</option><option value="ar">العربية / Arabic</option></select>
+</div>
+<div class="ai-chat" id="aiChat"><div class="ai-msg bot">Hello. I am the Al-Nasr Star Security AI assistant. I can search the portal records, answer questions using verified data, navigate the portal, and open the correct management forms for you. I will not invent missing information.</div></div>
+<form onsubmit="askAI(event)" style="display:flex;gap:8px;margin-top:10px"><input id="aiInput" autocomplete="off" placeholder="Ask: Where does job number 1001 sleep?" required style="flex:1"><button class="btn primary">Ask AI</button></form>
+<div class="ai-note">Portal actions are permission-controlled. CampBoss-only operations remain restricted to CampBoss. External internet research requires a server/API connection; this browser-only page cannot safely hold an AI API key.</div>
+</div>
+</section><section id="p-inbox" class="page">
+<div class="welcome"><div><h1>Staff Reports</h1><p>Complaints, incidents and information submitted by Security Guards.</p></div></div>
+<div class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>From</th><th>Type</th><th>Subject</th><th>Time</th><th>Status</th><th>Action Taken</th><th>Manage</th></tr></thead><tbody id="staffReportTable"></tbody></table></div></div>
+<div id="staffReportDetail"></div>
+</section><section id="p-settings" class="page"><div class="welcome"><div><h1>Settings</h1><p>Camp configuration.</p></div></div><div class="panel"><div class="grid"><div class="field"><label>Camp Name</label><input value="Argentine Camp"></div><div class="field"><label>Security Contact</label><input value="+254 700 000 000"></div><div class="field"><label>Default Category</label><select><option>Kenyan</option><option>Sudanese</option><option>Asian</option></select></div><div class="field"><label>Session</label><select><option>30 minutes</option><option>60 minutes</option></select></div></div><div class="panel" style="margin-top:12px"><div class="head"><div><h3>Notification Alerts</h3><p>Sound and vibration can be enabled for CampBoss and Security Guards.</p></div></div>
+<label style="display:flex;gap:9px;align-items:center;font-size:11px;margin:8px 0"><input type="checkbox" id="soundToggle" checked onchange="setAlertSetting('sound',this.checked)"> Notification sound</label>
+<label style="display:flex;gap:9px;align-items:center;font-size:11px;margin:8px 0"><input type="checkbox" id="vibrateToggle" checked onchange="setAlertSetting('vibrate',this.checked)"> Vibration alert</label>
+</div><button class="btn primary" onclick="savePortalSettings()">Save Settings</button></div></section>
+</div></main>
+<button class="ai-fab" onclick="go('ai')" title="AI Assist">✦</button>
+</div>
+<!-- modals -->
+<div class="modal" id="m-guard"><div class="modalbox"><div class="modalhead"><h3>Register Security Guard</h3><button type="button" class="close" onclick="closeM('guard')">×</button></div><form onsubmit="addGuard(event)"><div class="grid">
+<div class="field"><label>Full name</label><input id="gn" required></div>
+<div class="field"><label>Company Job Number</label><input id="gno" inputmode="numeric" pattern="[0-9]+" placeholder="Example: 1234" required></div>
+<div class="field"><label>Phone</label><input id="gp" type="tel" required></div>
+<div class="field"><label>National / Staff ID</label><input id="gnid" required></div>
+<div class="field"><label>Password for guard</label><input id="gpass" type="password" minlength="6" required></div>
+<div class="field"><label>Work location</label><select id="ga" onchange="toggleOtherLocation('ga','gother')"><option>Aspire Zone</option><option>Other</option></select></div>
+<div class="field full"><input id="gother" class="hide" placeholder="Specify work location"></div>
+<div class="field"><label>Shift</label><select id="gshift" onchange="toggleCustomShift('gshift','gcustom')"><option>Shift A</option><option>Shift B</option><option>Shift C</option><option>Shift D</option><option>Other</option></select></div>
+<div class="field"><label>Sleeping room</label><input id="groom" placeholder="Example: GV-03 / Room 302" required></div>
+<div class="field full"><input id="gcustom" class="hide" placeholder="Specify shift"></div>
+</div><button type="submit" class="btn primary" style="width:100%">Register Guard</button></form></div></div></form></div></div>
+<div class="modal" id="m-space"><div class="modalbox"><div class="modalhead"><h3>Add Accommodation Capacity</h3><button class="close" onclick="closeM('space')">×</button></div><form onsubmit="addSpace(event)"><div class="grid"><div class="field"><label>Category</label><select id="sc"><option>Kenyan Spaces</option><option>Sudanese Spaces</option><option>Asian Spaces</option></select></div><div class="field"><label>Capacity to add</label><input id="sn" type="number" min="1" required></div></div><button class="btn primary" style="width:100%">Add Capacity</button></form></div></div>
+<div class="modal" id="m-room"><div class="modalbox"><div class="modalhead"><h3>Add Room</h3><button class="close" onclick="closeM('room')">×</button></div><form onsubmit="addRoom(event)"><div class="grid"><div class="field"><label>Room</label><input id="rno" required></div><div class="field"><label>Villa</label><select id="rv"></select></div><div class="field"><label>Category</label><select id="rc"><option>Kenyan</option><option>Sudanese</option><option>Asian</option></select></div><div class="field"><label>Capacity</label><input id="rnum" type="number" min="1" value="4" required></div></div><button class="btn primary" style="width:100%">Add Room</button></form></div></div>
+<div class="modal" id="m-complaint"><div class="modalbox"><div class="modalhead"><h3>New Incident Report</h3><button class="close" onclick="closeM('complaint')">×</button></div><form onsubmit="addComplaint(event)"><div class="field"><label>Issue</label><input id="ci" required></div><div class="grid"><div class="field"><label>Reported By</label><input id="cb" required></div><div class="field"><label>Priority</label><select id="cp"><option>Normal</option><option>High</option><option>Critical</option></select></div></div><button class="btn primary" style="width:100%">Submit Report</button></form></div></div>
+<div class="modal" id="m-announcement"><div class="modalbox"><div class="modalhead"><h3>New Announcement</h3><button class="close" onclick="closeM('announcement')">×</button></div><form onsubmit="addAnnouncement(event)"><div class="field"><label>Title</label><input id="at" required></div><div class="field"><label>Message</label><textarea id="am" rows="4" required></textarea></div><button class="btn primary" style="width:100%">Publish</button></form></div></div>
+<div class="modal" id="m-document"><div class="modalbox"><div class="modalhead"><h3>Share Document With Staff</h3><button class="close" onclick="closeM('document')">×</button></div><form onsubmit="shareDocument(event)">
+<div class="field"><label>Document title</label><input id="dt" required placeholder="Security Instructions / Duty Roster"></div>
+<div class="field"><label>File</label><input id="df" type="file" required></div>
+<div class="field"><label>Message</label><textarea id="dm" rows="3" placeholder="Optional message to staff"></textarea></div>
+<div class="field"><label>Share with selected staff</label><div class="check-list" id="staffChecks"></div></div>
+<button class="btn primary" style="width:100%">Share Document</button></form></div></div><div class="modal" id="m-request"><div class="modalbox"><div class="modalhead"><h3>New Camp Request</h3><button class="close" onclick="closeM('request')">×</button></div><form onsubmit="addRequest(event)"><div class="grid"><div class="field"><label>Request</label><input id="qq" required></div><div class="field"><label>Requested By</label><input id="qb" required></div><div class="field"><label>Category</label><select id="qc"><option>Accommodation</option><option>Access</option><option>Maintenance</option><option>Security</option></select></div><div class="field"><label>Priority</label><select id="qp"><option>Normal</option><option>High</option><option>Urgent</option></select></div></div><button class="btn primary" style="width:100%">Submit Request</button></form></div></div>
+<script>
+const K='alnasr-v3';const base={guards:[{name:'Mohammed Hassan',no:'1001',phone:'+254 711 111 111',area:'Gate A',status:'Active',password:'demo123',nid:'1',shift:'Shift A',room:'GV-01 / Room 101'},{name:'Abdi Omar',no:'1002',phone:'+254 722 222 222',area:'Villa Zone',status:'Active',password:'demo123',nid:'2',shift:'Shift B',room:'GV-02 / Room 202'}],spaces:[{name:'Kenyan Spaces',flag:'🇰🇪',total:55,occupied:31},{name:'Sudanese Spaces',flag:'🇸🇩',total:35,occupied:20},{name:'Asian Spaces',flag:'🌏',total:30,occupied:18}],rooms:[{room:'101',villa:'GV-01',cat:'Kenyan',cap:4,occ:3},{room:'102',villa:'GV-01',cat:'Sudanese',cap:4,occ:2},{room:'202',villa:'GV-02',cat:'Asian',cap:4,occ:1},{room:'301',villa:'GV-03',cat:'Kenyan',cap:4,occ:3},{room:'302',villa:'GV-03',cat:'Sudanese',cap:4,occ:2},{room:'402',villa:'GV-04',cat:'Asian',cap:4,occ:2}],complaints:[{ref:'INC-1042',issue:'Gate access concern',by:'Gate A Guard',priority:'High',status:'Open',date:'02 Oct 2026'},{ref:'INC-1041',issue:'Room maintenance request',by:'Resident',priority:'Normal',status:'Open',date:'02 Oct 2026'}],ann:[{title:'Security briefing',msg:'All guards should attend the evening security briefing at 18:00.',date:'02 Oct 2026'}],requests:[{q:'Room transfer',by:'Resident 204',cat:'Accommodation',pri:'Normal',status:'Pending'}],activity:['Guard 1002 checked in at Villa Zone','3 spaces released for allocation','Incident INC-1042 marked High priority','Accommodation report updated']};let d=JSON.parse(localStorage.getItem(K)||'null')||base;
+d.guards=(d.guards||[]).map(x=>({...x,no:String(x.no||'').replace(/^G-/i,''),shift:x.shift||'Shift A',room:x.room||'Not assigned',password:x.password||''}));
+d.guards=d.guards.map(x=>({...x,area:x.area||'Aspire Zone'}));
+d.documents=d.documents||[];
+d.notifications=d.notifications||[];
+d.alertSettings=d.alertSettings||{sound:true,vibrate:true};
+d.messages=d.messages||[];d.staffReports=d.staffReports||[];d.readReports=d.readReports||{};d.documents=d.documents||[];
+d.spaces=(d.spaces||[]).filter(x=>!String(x.name||'').toLowerCase().includes('argentine')).map(x=>({...x,flag:x.flag||'•'}));
+d.rooms=(d.rooms||[]).filter(x=>String(x.cat||'').toLowerCase()!=='argentine');
+let user=null,filter='',lastNotificationSignature='';
+
+function $(id){return document.getElementById(id)}
+function save(){localStorage.setItem(K,JSON.stringify(d))}function authTab(t){document.getElementById('le').classList.add('hide');document.getElementById('re').classList.add('hide');$('lf').classList.toggle('hide',t!=='login');$('rf').classList.toggle('hide',t!=='register');$('lt').classList.toggle('on',t==='login');$('rt').classList.toggle('on',t==='register')}function err(id,s){let e=document.getElementById(id);e.textContent=s;e.classList.remove('hide')}function register(e){
+ e.preventDefault();
+ const name=$('rn').value.trim(), phone=$('rp').value.trim(), nid=$('ri').value.trim();
+ const number=$('rg').value.trim(), password=$('rpass').value, confirm=$('rpass2').value;
+ const areaSelect=$('ra').value, otherArea=$('rother').value.trim();
+ const area=areaSelect==='Other'?(otherArea||'Other'):areaSelect;
+ const shiftSelect=$('rshift').value, customShift=$('rcustom').value.trim();
+ const shift=shiftSelect==='Other'?(customShift||'Other'):shiftSelect;
+ const room=$('rroom').value.trim();
+
+ if(!/^\d+$/.test(number)){err('re','Company Job Number must contain numbers only, for example 1234.');return;}
+ if(password!==confirm){err('re','Passwords do not match.');return;}
+ if(d.guards.some(x=>String(x.no).trim()===number)){err('re','That company job number already exists.');return;}
+
+ d.guards.push({name,no:number,phone,area,status:'Active',password,nid,shift,room});
+ save();
+ addNotification('New guard registered','A new guard account has been created.','all');
+ $('role').value='guard'; $('lid').value=number; $('lp').value='';
+ e.target.reset(); $('rother').classList.add('hide'); $('rcustom').classList.add('hide');
+ toast('Guard account created. Sign in using your company job number and password.');
+ setTimeout(()=>authTab('login'),300);
+}
+function handleLogin(e){
+ e.preventDefault();
+ const selectedRole=document.getElementById('role').value;
+ const jobNumber=document.getElementById('lid').value.trim();
+ const password=document.getElementById('lp').value;
+ document.getElementById('le').classList.add('hide');
+
+ if(selectedRole==='boss'){
+   if(jobNumber==='3878' && password==='CampBoss@2026'){
+     start({name:'CampBoss',role:'CampBoss',area:'Administration',no:'3878'});
+     return;
+   }
+   err('le','Invalid CampBoss credentials.');
+   return;
+ }
+
+ const guard=d.guards.find(x =>
+   String(x.no).trim().toLowerCase()===jobNumber.toLowerCase() &&
+   String(x.password)===password
+ );
+
+ if(!guard){
+   err('le','Company Job Number or password is incorrect.');
+   return;
+ }
+
+ start({
+   name:guard.name,
+   role:'Security Guard',
+   area:guard.area,
+   no:guard.no
+ });
+}
+function start(u){
+ user=u;sessionStorage.user=JSON.stringify(u);
+ document.getElementById('loginScreen').style.display='none';
+ document.getElementById('app').style.display='block';
+ $('un').textContent=u.name;
+ $('ur').textContent=u.role+' • '+u.area;
+ $('av').textContent=u.name.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
+ $('pill').textContent=u.role.toUpperCase();
+
+ const boss=isBoss();
+ if(document.getElementById('usersBtn')) document.getElementById('usersBtn').style.display=boss?'block':'none';
+ if(document.getElementById('myAccountBtn')) document.getElementById('myAccountBtn').style.display=boss?'none':'block';
+ if(document.getElementById('shareDocumentBtn')) document.getElementById('shareDocumentBtn').style.display=boss?'inline-flex':'none';
+ if(document.getElementById('documentsIntro')) document.getElementById('documentsIntro').textContent=boss?'Share instructions, rosters and other documents with selected staff.':'Only documents shared with your own account are shown here.';
+if(document.getElementById('messagesBtn')) document.getElementById('messagesBtn').style.display='block';
+if(document.getElementById('inboxBtn')) document.getElementById('inboxBtn').style.display=boss?'block':'none';
+
+ // Guards have a personal-only menu. CampBoss keeps the full management menu.
+ document.querySelectorAll('#side button').forEach(btn=>{
+   const t=(btn.textContent||'').toLowerCase();
+   const restricted=t.includes('users')||t.includes('staff')||t.includes('guards / residents')||t.includes('reports')||t.includes('documents')||t.includes('announcements')||t.includes('camp requests');
+   if(!boss && restricted) btn.style.display='none';
+   if(boss && t.includes('my account')) btn.style.display='none';
+ });
+ lastNotificationSignature=visibleNotifications().map(x=>x.id).join('|');
+ render();
+ go(boss?'dashboard':'myaccount');
+}
+function logout(){sessionStorage.clear();location.reload()}function go(p,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById('p-'+p).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');$('title').textContent=p==='dashboard'?'Command Dashboard':p[0].toUpperCase()+p.slice(1).replace('-', ' ');$('side').classList.remove('open');render()}function openM(x){document.getElementById('m-'+x).classList.add('on');if(x==='room')$('rv').innerHTML=['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(x=>'<option>'+x+'</option>').join('')}function closeM(x){const m=$('m-'+x);if(m)m.classList.remove('on')}function toast(s){let x=document.createElement('div');x.className='toast';x.textContent=s;document.body.appendChild(x);setTimeout(()=>x.remove(),2200)}function totals(){let t=d.spaces.reduce((a,x)=>a+x.total,0),o=d.spaces.reduce((a,x)=>a+x.occupied,0);return[t,o,t-o]}function sc(x){let a=x.total-x.occupied,p=Math.round(x.occupied/x.total*100);return `<div class="space"><div class="flag">${x.flag}</div><h4>${x.name}</h4><small>Accommodation capacity</small><div class="big">${a}</div><div class="meta"><span>Available</span><span>${x.occupied}/${x.total} occupied</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}function villas(){return ['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(v=>{let r=d.rooms.filter(x=>x.villa===v),c=r.reduce((a,x)=>a+x.cap,0),o=r.reduce((a,x)=>a+x.occ,0);return{v,r,c,o}})}function vc(x){let p=x.c?Math.round(x.o/x.c*100):0;return `<div class="villa" onclick="filterRooms('${x.v}')"><strong>${x.v}</strong><small>${x.r.length} rooms • ${x.c} beds</small><div class="bar"><i style="width:${p}%"></i></div><b>${x.o} occupied • ${x.c-x.o} free</b></div>`}function render(){
+ let[t,o,a]=totals();
+ $('total').textContent=t;$('occ').textContent=o;$('avail').textContent=a;
+ document.getElementById('openCount').textContent=d.complaints.filter(x=>x.status==='Open').length;
+ $('spaceCards').innerHTML=d.spaces.map(sc).join('');
+ $('spaceCards2').innerHTML=d.spaces.map(sc).join('');
+ let vs=villas();
+ $('villaCards').innerHTML=vs.slice(0,6).map(vc).join('');
+ document.getElementById('villaList').innerHTML=vs.map(vc).join('');
+ $('spaceTable').innerHTML=d.spaces.map((x,i)=>`<tr><td>${x.flag} <b>${x.name}</b></td><td>${x.total}</td><td>${x.occupied}</td><td><b>${x.total-x.occupied}</b></td><td><span class="badge">${x.total-x.occupied?'Available':'Full'}</span></td><td>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteSpace(${i})">Delete</button>`:''}</td></tr>`).join('');
+ renderGuards();renderRooms();
+ $('complaintTable').innerHTML=d.complaints.map((x,i)=>`<tr><td>${x.ref}</td><td><b>${x.issue}</b></td><td>${x.by}</td><td><span class="badge ${x.priority!=='Normal'?'gold':''}">${x.priority}</span></td><td><span class="badge ${x.status==='Open'?'red':''}">${x.status}</span></td><td>${x.date}</td><td>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteComplaint(${i})">Delete</button>`:''}</td></tr>`).join('');
+ $('announcements').innerHTML=d.ann.map((x,i)=>`<div class="panel"><div class="head"><div><h3>${x.title}</h3><p>${x.date}</p></div><div>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteAnnouncement(${i})">Delete</button>`:''}</div></div><p style="font-size:12px;line-height:1.6;color:#536573">${x.msg}</p></div>`).join('');
+ $('requestTable').innerHTML=d.requests.map((x,i)=>`<tr><td><b>${escapeHTML(x.q)}</b></td><td>${escapeHTML(x.by)}${x.byNo?`<br><small>Job ${escapeHTML(x.byNo)}</small>`:''}</td><td>${escapeHTML(x.cat)}</td><td><span class="badge gold">${escapeHTML(x.pri||'Normal')}</span></td><td><span class="badge">${escapeHTML(x.status||'Pending')}</span></td><td>${user?.role==='CampBoss'?`<button class="btn outline" onclick="viewRequest(${i})">Reply</button> <button class="btn danger" onclick="deleteRequest(${i})">Delete</button>`:''}</td></tr>`).join('');
+ $('activity').innerHTML=d.activity.slice(0,6).map(x=>`<div>● &nbsp;${x}</div>`).join('');
+ $('userTable').innerHTML=d.guards.map(x=>`<tr><td><b>${x.name}</b></td><td>${x.no}</td><td>${x.phone}</td><td>${x.area}</td><td>${x.shift||'Shift A'}</td><td>${x.room||'Not assigned'}</td><td><button class="btn outline" onclick="showStaff('${x.no}')">View</button> ${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteGuard('${x.no}')">Delete</button>`:''}</td></tr>`).join('');
+ let r='<div class="cards">'+d.spaces.map(x=>`<div class="card"><div class="num">${x.total-x.occupied}</div><div class="lab">${x.flag} ${x.name} available</div></div>`).join('')+'</div>';
+ $('report').innerHTML=r;
+ renderDocuments();renderMyAccount();renderMyRequests();renderMessageUsers();renderChat();renderStaffReports();renderNotifications();loadAlertSettings();
+}
+function renderGuards(){
+ let q=($('gs')?.value||'').toLowerCase();
+ const rows=d.guards.filter(x=>(x.name+' '+x.no+' '+x.area+' '+x.phone+' '+(x.shift||'')+' '+(x.room||'')).toLowerCase().includes(q));
+ document.getElementById('guardTable').innerHTML=rows.map((x,i)=>`<tr><td><b>${x.name}</b></td><td>${x.no}</td><td>${x.phone}</td><td>${x.area}</td><td>${x.shift||'Shift A'}</td><td>${x.room||'Not assigned'}</td><td>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteGuard('${x.no}')">Delete</button>`:''}</td></tr>`).join('');
+}
+function renderRooms(){
+ let rows=d.rooms.filter(x=>!filter||x.villa===filter);
+ $('filter').textContent=filter?'Showing '+filter:'All rooms';
+ $('roomTable').innerHTML=rows.map((x,i)=>`<tr><td>${x.room}</td><td>${x.villa}</td><td>${x.cat}</td><td>${x.cap}</td><td>${x.occ}/${x.cap}</td><td><span class="badge ${x.occ>=x.cap?'red':''}">${x.occ>=x.cap?'Full':'Available'}</span></td><td>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteRoom(${d.rooms.indexOf(x)})">Delete</button>`:''}</td></tr>`).join('');
+}
+function filterRooms(v){filter=v;go('villas')}
+function addGuard(e){
+ e.preventDefault();
+ if(!isBoss())return toast('Only CampBoss can register staff.');
+ const name=$('gn').value.trim(), no=$('gno').value.trim(), phone=$('gp').value.trim();
+ const nid=$('gnid').value.trim(), password=$('gpass').value;
+ const areaSel=$('ga').value, area=areaSel==='Other'?($('gother').value.trim()||'Other'):areaSel;
+ const shiftSel=$('gshift').value, shift=shiftSel==='Other'?($('gcustom').value.trim()||'Other'):shiftSel;
+ const room=$('groom').value.trim();
+ if(!/^\d+$/.test(no))return toast('Company Job Number must contain numbers only, for example 1234.');
+ if(password.length<6)return toast('Guard password must be at least 6 characters.');
+ if(d.guards.some(x=>String(x.no).trim()===no))return toast('That company job number already exists.');
+ d.guards.push({name,no,phone,area,status:'Active',password,nid,shift,room});
+ save(); addNotification('New guard registered',name+' was added with company job number '+no+'.','all');
+ closeM('guard');e.target.reset();$('gother').classList.add('hide');$('gcustom').classList.add('hide');
+ render();toast('Guard registered successfully.');
+}
+function addSpace(e){e.preventDefault();const category=$('sc').value;const amount=$('sn').value;let x=d.spaces.find(x=>x.name===category);if(x)x.total+=+amount;else d.spaces.push({name:category,flag:'•',total:+amount,occupied:0});save();addNotification('Space capacity updated','Accommodation capacity was updated.','all');closeM('space');e.target.reset();render();toast('Capacity added')}function addRoom(e){e.preventDefault();d.rooms.push({room:$('rno').value,villa:$('rv').value,cat:$('rc').value,cap:+$('rnum').value,occ:0});save();addNotification('Room added','A new room was added to camp accommodation.','all');closeM('room');e.target.reset();render();toast('Room added')}function addComplaint(e){e.preventDefault();d.complaints.unshift({ref:'INC-'+(1043+d.complaints.length),issue:$('ci').value,by:$('cb').value,priority:$('cp').value,status:'Open',date:new Date().toLocaleDateString('en-GB')});save();addNotification('🔔 New incident report',$('ci').value+' was submitted.','all');closeM('complaint');e.target.reset();render();toast('Report submitted')}function addAnnouncement(e){e.preventDefault();d.ann.unshift({title:$('at').value,msg:$('am').value,date:new Date().toLocaleDateString('en-GB')});save();addNotification('🔔 New Camp Broadcast',at.value+' has been published.','all');closeM('announcement');e.target.reset();render();toast('Broadcast published and sent to the notification bell')}function addRequest(e){e.preventDefault();const byNo=isBoss()?'':(user?.no||'');const by=$('qb').value.trim();d.requests.unshift({id:'REQ-'+Date.now(),q:$('qq').value,by,byNo,cat:$('qc').value,pri:$('qp').value,status:'Pending',message:$('qq').value,response:'',date:new Date().toLocaleString('en-GB')});save();if(isBoss())addNotification('New camp request',$('qq').value+' was submitted.','all');else addNotification('New camp request',$('qq').value+' was submitted to CampBoss.','3878');closeM('request');e.target.reset();render();toast('Request submitted')}
+
+function toggleOtherLocation(selectId,inputId){
+ const s=document.getElementById(selectId),i=document.getElementById(inputId);
+ if(!s||!i)return;
+ i.classList.toggle('hide',s.value!=='Other');
+ if(s.value!=='Other')i.value='';
+}
+function toggleCustomShift(selectId,inputId){
+ const s=document.getElementById(selectId),i=document.getElementById(inputId);
+ if(!s||!i)return;
+ i.classList.toggle('hide',s.value!=='Other');
+ if(s.value!=='Other')i.value='';
+}
+function isBoss(){return user?.role==='CampBoss'}
+function deleteGuard(no){if(!isBoss())return toast('CampBoss permission required');if(!confirm('Delete staff '+no+'?'))return;d.guards=d.guards.filter(x=>x.no!==no);save();render();toast('Staff deleted')}
+function deleteSpace(i){if(!isBoss())return;if(!confirm('Delete this space category?'))return;d.spaces.splice(i,1);save();render();toast('Space category deleted')}
+function deleteRoom(i){if(!isBoss())return;if(!confirm('Delete this room?'))return;d.rooms.splice(i,1);save();render();toast('Room deleted')}
+function deleteComplaint(i){if(!isBoss())return;if(!confirm('Delete this report?'))return;d.complaints.splice(i,1);save();render();toast('Report deleted')}
+function deleteAnnouncement(i){if(!isBoss())return;if(!confirm('Delete this announcement?'))return;d.ann.splice(i,1);save();render();toast('Announcement deleted')}
+function deleteRequest(i){if(!isBoss())return;if(!confirm('Delete this request?'))return;d.requests.splice(i,1);save();render();toast('Request deleted')}
+function showStaff(no){
+ if(!isBoss()){toast('Staff details are private to CampBoss.');return;}
+ const x=d.guards.find(g=>g.no===no);
+ if(!x)return;
+ document.getElementById('staffResult').innerHTML=`<div class="staff-result"><div class="head"><div><h3>${x.name}</h3><p>Complete staff record</p></div><span class="badge">${x.status||'Active'}</span></div><div class="detail-grid"><div class="detail-box"><small>Job Number</small><b>${x.no}</b></div><div class="detail-box"><small>Phone</small><b>${x.phone}</b></div><div class="detail-box"><small>Work Location</small><b>${x.area}</b></div><div class="detail-box"><small>Shift</small><b>${x.shift||'Shift A'}</b></div><div class="detail-box"><small>Sleeping Room</small><b>${x.room||'Not assigned'}</b></div><div class="detail-box"><small>Staff ID</small><b>${x.nid||'Not provided'}</b></div></div></div>`;
+}
+function searchStaffByJob(){
+ if(!isBoss()){toast('Staff search is available only to CampBoss.');return;}
+ const no=document.getElementById('staffJobSearch').value.trim();
+ if(!no){toast('Enter a job number');return}
+ const x=d.guards.find(g=>String(g.no).toLowerCase()===no.toLowerCase());
+ if(!x){document.getElementById('staffResult').innerHTML='<div class="staff-result"><b>Staff not found.</b><p style="font-size:10px;color:#71808b">Check the job number and try again.</p></div>';return}
+ showStaff(x.no);
+}
+function openM(x){
+ const m=$('m-'+x);if(!m){toast('This window is not available.');return}m.classList.add('on');
+ if(x==='room')document.getElementById('rv').innerHTML=['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(x=>'<option>'+x+'</option>').join('');
+ if(x==='document')populateStaffChecks();
+}
+function populateStaffChecks(){
+ if(!isBoss())return;
+ const box=document.getElementById('staffChecks');
+ if(!d.guards.length){box.innerHTML='<div style="font-size:10px;padding:10px">No registered staff.</div>';return}
+ box.innerHTML='<label><input type="checkbox" id="shareAll"> Share with all staff</label>'+d.guards.map(x=>`<label><input type="checkbox" class="staffPick" value="${x.no}"> ${x.name} — ${x.no}</label>`).join('');
+ document.getElementById('shareAll').onchange=e=>document.querySelectorAll('.staffPick').forEach(c=>c.checked=e.target.checked);
+}
+function shareDocument(e){
+ e.preventDefault();
+ if(!isBoss()){toast('Only CampBoss can share documents.');return;}
+ if(!isBoss())return toast('Only CampBoss can share documents');
+ const file=document.getElementById('df').files[0];
+ if(!file)return toast('Select a document');
+ const picks=[...document.querySelectorAll('.staffPick:checked')].map(x=>x.value);
+ const shareAll=document.getElementById('shareAll')?.checked;
+ if(!shareAll&&!picks.length)return toast('Select at least one staff member');
+ const reader=new FileReader();
+ reader.onload=()=>{
+   const id='DOC-'+Date.now();
+   d.documents.unshift({id,title:document.getElementById('dt').value.trim(),fileName:file.name,mime:file.type||'application/octet-stream',data:reader.result,size:file.size,sharedTo:shareAll?['ALL']:picks,message:document.getElementById('dm').value.trim(),date:new Date().toLocaleString('en-GB')});
+   save();
+   (shareAll?d.guards.map(x=>x.no):picks).forEach(no=>addNotification('New document shared',document.getElementById('dt').value.trim()+' is available for you.',no));
+   closeM('document');e.target.reset();render();toast('Document shared successfully');
+ };
+ if(file.size>3*1024*1024){toast('For this single-file browser version, please keep documents under 3 MB.');return}
+ reader.readAsDataURL(file);
+}
+function renderMyAccount(){
+ const box=document.getElementById('myProfile');
+ if(!box||!user||isBoss())return;
+ const s=d.guards.find(x=>x.no===user.no);
+ if(!s){box.innerHTML='<p style="color:#71808b;font-size:11px">Your account record could not be found.</p>';return;}
+ box.innerHTML=`<div class="detail-grid">
+ <div class="detail-box"><small>Name</small><b>${s.name}</b></div>
+ <div class="detail-box"><small>Job Number</small><b>${s.no}</b></div>
+ <div class="detail-box"><small>Phone</small><b>${s.phone}</b></div>
+ <div class="detail-box"><small>Work Location</small><b>${s.area}</b></div>
+ <div class="detail-box"><small>Shift</small><b>${s.shift||'Not assigned'}</b></div>
+ <div class="detail-box"><small>Sleeping Room</small><b>${s.room||'Not assigned'}</b></div>
+ </div>`;
+}
+
+let selectedChatUser=null;
+
+function otherUsersForMessages(){
+ if(!user)return [];
+ if(isBoss()) return d.guards||[];
+ return [{no:'3878',name:'CampBoss',role:'CampBoss',area:'Administration'}];
+}
+function unreadFor(no){
+ return (d.messages||[]).filter(m=>m.to===no && !((m.readBy||[]).includes(user?.no))).length;
+}
+function renderMessageUsers(){
+ const box=document.getElementById('messageUsers'); if(!box||!user)return;
+ const list=otherUsersForMessages();
+ box.innerHTML=list.map(x=>`<div class="user-list-item ${selectedChatUser===x.no?'active':''}" onclick="selectChat('${x.no}')">
+   <b>${x.name} ${unreadFor(x.no)?'🔴':''}</b>
+   <small>${x.no} • ${x.area||'Administration'} ${x.shift?'• '+x.shift:''}</small>
+ </div>`).join('')||'<div style="padding:12px;font-size:10px;color:#71808b">No users available.</div>';
+ document.getElementById('navUnread').textContent=(d.messages||[]).filter(m=>m.to===user.no && !(m.readBy||[]).includes(user.no)).length||'';
+}
+function selectChat(no){
+ selectedChatUser=no;
+ renderMessageUsers();
+ renderChat();
+}
+function renderChat(){
+ const head=document.getElementById('chatHead'),box=document.getElementById('chatMessages');
+ if(!head||!box)return;
+ const target=otherUsersForMessages().find(x=>x.no===selectedChatUser);
+ if(!target){head.innerHTML='<b>Select a user</b><div style="font-size:9px;color:#71808b">Choose a staff member to start a conversation.</div>';box.innerHTML='<div style="font-size:10px;color:#71808b;padding:10px">Your messages will appear here.</div>';return}
+ head.innerHTML=`<b>${target.name}</b><div style="font-size:9px;color:#71808b">${target.no} • ${target.area||'Administration'}</div>`;
+ const msgs=(d.messages||[]).filter(m=>(m.from===user.no&&m.to===target.no)||(m.from===target.no&&m.to===user.no));
+ box.innerHTML=msgs.map(m=>{
+   const sent=m.from===user.no;
+   return `<div class="chat-bubble ${sent?'sent':'received'}"><div>${escapeHTML(m.text||'')}</div>${m.fileData?`<div class="attach-chip">📎 <a href="${m.fileData}" download="${escapeHTML(m.fileName||'attachment')}">${escapeHTML(m.fileName||'Attachment')}</a></div>`:''}<span class="meta">${m.date}${m.from===user.no?' • Sent':''}</span></div>`;
+ }).join('')||'<div style="font-size:10px;color:#71808b;padding:10px">No messages yet.</div>';
+ box.scrollTop=box.scrollHeight;
+ // mark received messages in this conversation read
+ let changed=false;
+ d.messages.forEach(m=>{if(m.to===user.no&&m.from===target.no&&!(m.readBy||[]).includes(user.no)){m.readBy=[...(m.readBy||[]),user.no];changed=true}});
+ if(changed){save();renderMessageUsers();}
+}
+function escapeHTML(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function sendMessage(e){
+ e.preventDefault();
+ if(!selectedChatUser){toast('Select a user first');return}
+ const text=document.getElementById('messageText').value.trim();
+ const file=document.getElementById('messageFile').files[0];
+ if(!text&&!file){toast('Write a message or attach a file');return}
+ if(file&&file.size>3*1024*1024){toast('Please keep attachments under 3 MB');return}
+ const finish=(fileData='')=>{
+   d.messages.push({id:'MSG-'+Date.now(),from:user.no,to:selectedChatUser,text,fileData,fileName:file?.name||'',date:new Date().toLocaleString('en-GB'),readBy:[]});
+   save();
+   addNotification('New private message',`New message from ${user.name}.`,selectedChatUser);
+   document.getElementById('messageText').value='';
+   document.getElementById('messageFile').value='';
+   renderMessageUsers();renderChat();toast('Message sent');
+ };
+ if(file){const r=new FileReader();r.onload=()=>finish(r.result);r.readAsDataURL(file)}else finish();
+}
+function sendGuardReport(e){
+ e.preventDefault();
+ if(isBoss())return;
+ const file=document.getElementById('grFile').files[0];
+ if(file&&file.size>3*1024*1024){toast('Please keep attachments under 3 MB');return}
+ const finish=(data='')=>{
+   const report={id:'REP-'+Date.now(),from:user.no,name:user.name,type:document.getElementById('grType').value,subject:document.getElementById('grSubject').value.trim(),message:document.getElementById('grMessage').value.trim(),fileData:data,fileName:file?.name||'',date:new Date().toLocaleString('en-GB'),status:'New',actionTaken:''};
+   d.staffReports.unshift(report);save();
+   addNotification('🔔 New staff complaint / information',report.subject+' was received. Open Staff Reports to review and record the action taken.','3878');
+   e.target.reset();render();toast('Your report was sent to CampBoss');
+ };
+ if(file){const r=new FileReader();r.onload=()=>finish(r.result);r.readAsDataURL(file)}else finish();
+}
+function renderStaffReports(){
+ const table=document.getElementById('staffReportTable');if(!table||!isBoss())return;
+ table.innerHTML=(d.staffReports||[]).map((r,i)=>`<tr><td><b>${r.name}</b><br><small>${r.from}</small></td><td>${r.type}</td><td>${r.subject}</td><td>${r.date}</td><td><span class="badge ${r.status==='New'?'red':''}">${r.status}</span></td><td>${r.actionTaken?escapeHTML(r.actionTaken):'<span style="color:#71808b">Not yet specified</span>'}</td><td><button class="btn outline" onclick="viewStaffReport(${i})">View / Reply</button> <button class="btn danger" onclick="deleteStaffReport(${i})">Delete</button></td></tr>`).join('')||'<tr><td colspan="7">No staff reports yet.</td></tr>';
+}
+function viewStaffReport(i){
+ const r=d.staffReports[i];if(!r)return;
+ r.status=r.status==='New'?'Read':r.status;d.readReports[r.id]=true;save();
+ document.getElementById('staffReportDetail').innerHTML=`<div class="panel" style="margin-top:14px"><div class="head"><div><h3>${escapeHTML(r.subject)}</h3><p>From ${escapeHTML(r.name)} (${escapeHTML(r.from)}) • ${escapeHTML(r.date)}</p></div></div><p style="font-size:11px;line-height:1.6">${escapeHTML(r.message)}</p>${r.fileData?`<div class="attach-chip">📎 <a href="${r.fileData}" download="${escapeHTML(r.fileName)}">Open attachment: ${escapeHTML(r.fileName)}</a></div>`:''}<div class="grid" style="margin-top:12px"><div class="field"><label>Complaint status</label><select id="reportStatus"><option ${r.status==='Read'?'selected':''}>Read</option><option ${r.status==='In Progress'?'selected':''}>In Progress</option><option ${r.status==='Resolved'?'selected':''}>Resolved</option><option ${r.status==='Closed'?'selected':''}>Closed</option></select></div><div class="field full"><label>Action taken / reply to staff member</label><textarea id="reportAction" rows="4" placeholder="Specify what action CampBoss took and what the guard should know next.">${escapeHTML(r.actionTaken||'')}</textarea></div></div><button class="btn primary" onclick="saveStaffReportAction(${i})">Save Action & Notify ${escapeHTML(r.name)}</button></div>`;
+ renderStaffReports();render();
+}
+function saveStaffReportAction(i){
+ if(!isBoss())return;const r=d.staffReports[i];if(!r)return;
+ const action=$('reportAction')?.value.trim();if(!action)return toast('Please specify the action taken or reply.');
+ r.actionTaken=action;r.status=$('reportStatus')?.value||'In Progress';r.actionDate=new Date().toLocaleString('en-GB');save();
+ addNotification('CampBoss replied to your report',`Action: ${action} • Status: ${r.status}`,r.from);
+ d.messages.push({id:'MSG-'+Date.now(),from:'3878',to:r.from,text:'Regarding your report "'+r.subject+'": '+action+' (Status: '+r.status+')',fileData:'',fileName:'',date:new Date().toLocaleString('en-GB'),readBy:[]});save();
+ renderStaffReports();render();toast('Action recorded and the guard was notified.');
+}
+function deleteStaffReport(i){if(!isBoss())return;if(!confirm('Delete this staff report?'))return;d.staffReports.splice(i,1);save();renderStaffReports();render();toast('Staff report deleted')}
+
+function sendGuardRequest(e){
+ e.preventDefault();if(isBoss())return;
+ const type=$('myReqType').value,subject=$('myReqSubject').value.trim(),message=$('myReqMessage').value.trim();
+ if(!subject||!message)return toast('Please complete the request.');
+ const req={id:'REQ-'+Date.now(),q:subject,by:user.name,byNo:user.no,cat:type,pri:'Normal',status:'Pending',message,response:'',date:new Date().toLocaleString('en-GB')};
+ d.requests.unshift(req);save();addNotification('New request sent','Your request was sent to CampBoss.','3878');
+ $('myReqSubject').value='';$('myReqMessage').value='';render();toast('Request sent to CampBoss.');
+}
+function viewRequest(i){
+ if(!isBoss())return;const r=d.requests[i];if(!r)return;
+ document.getElementById('requestDetail').innerHTML=`<div class="panel" style="margin-top:14px"><div class="head"><div><h3>${escapeHTML(r.q)}</h3><p>From ${escapeHTML(r.by)}${r.byNo?' • Job '+escapeHTML(r.byNo):''} • ${escapeHTML(r.date||'')}</p></div></div><p style="font-size:11px;line-height:1.6">${escapeHTML(r.message||'Request submitted through Camp Requests.')}</p>${r.response?`<div class="attach-chip">Previous response: ${escapeHTML(r.response)}${r.responseDate?' • '+escapeHTML(r.responseDate):''}</div>`:''}<div class="grid" style="margin-top:12px"><div class="field"><label>Request status</label><select id="requestStatus"><option ${r.status==='Pending'?'selected':''}>Pending</option><option ${r.status==='In Progress'?'selected':''}>In Progress</option><option ${r.status==='Approved'?'selected':''}>Approved</option><option ${r.status==='Completed'?'selected':''}>Completed</option><option ${r.status==='Rejected'?'selected':''}>Rejected</option></select></div><div class="field full"><label>Action taken / reply</label><textarea id="requestResponse" rows="4" placeholder="Tell the requester what action was taken.">${escapeHTML(r.response||'')}</textarea></div></div><button class="btn primary" onclick="saveRequestResponse(${i})">Save Reply & Notify ${escapeHTML(r.by)}</button></div>`;
+}
+function saveRequestResponse(i){
+ if(!isBoss())return;const r=d.requests[i];if(!r)return;const response=$('requestResponse')?.value.trim();if(!response)return toast('Please enter a reply or action taken.');
+ r.response=response;r.status=$('requestStatus')?.value||'In Progress';r.responseDate=new Date().toLocaleString('en-GB');save();
+ if(r.byNo){addNotification('CampBoss replied to your request',`Action: ${response} • Status: ${r.status}`,r.byNo);d.messages.push({id:'MSG-'+Date.now(),from:'3878',to:r.byNo,text:'Regarding your request "'+r.q+'": '+response+' (Status: '+r.status+')',fileData:'',fileName:'',date:new Date().toLocaleString('en-GB'),readBy:[]});save();}
+ render();toast('Reply saved and requester notified.');
+}
+function renderMyRequests(){
+ const box=$('myRequests');if(!box||isBoss())return;
+ const rows=(d.requests||[]).filter(r=>r.byNo===user?.no);
+ box.innerHTML=rows.map(r=>`<div class="panel" style="padding:10px;margin-bottom:8px"><b>${escapeHTML(r.q)}</b><div style="font-size:9px;color:#71808b;margin-top:4px">${escapeHTML(r.cat)} • ${escapeHTML(r.status)} • ${escapeHTML(r.date||'')}</div><p style="font-size:10px;line-height:1.5">${escapeHTML(r.message||'')}</p>${r.response?`<div style="background:#edf5f2;padding:8px;border-radius:8px;font-size:10px"><b>CampBoss reply:</b> ${escapeHTML(r.response)}</div>`:'<div style="font-size:9px;color:#71808b">Waiting for CampBoss reply.</div>'}</div>`).join('')||'<div style="font-size:10px;color:#71808b">No requests submitted yet.</div>';
+}
+
+function renderDocuments(){
+ const box=document.getElementById('documentGrid'); if(!box)return;
+ const visible=d.documents.filter(x=>isBoss()||x.sharedTo.includes('ALL')||x.sharedTo.includes(user?.no));
+ if(!visible.length){box.innerHTML='<div class="panel"><p style="font-size:11px;color:#71808b">No documents have been shared with this account yet.</p></div>';return}
+ box.innerHTML=visible.map((x,i)=>`<div class="doc-card"><h4>📄 ${x.title}</h4><p><b>${x.fileName}</b></p><p>${x.message||'No message'}</p><p>Shared: ${x.date}</p><p>Recipients: ${x.sharedTo.includes('ALL')?'All staff':x.sharedTo.join(', ')}</p><div style="display:flex;gap:7px;margin-top:9px"><a class="btn outline" href="${x.data}" download="${x.fileName}">Download</a>${isBoss()?`<button class="btn danger" onclick="deleteDocument('${x.id}')">Delete</button>`:''}</div></div>`).join('');
+}
+function deleteDocument(id){if(!isBoss())return;if(!confirm('Delete this document?'))return;d.documents=d.documents.filter(x=>x.id!==id);save();render();toast('Document deleted')}
+function addNotification(title,msg,target='all'){
+ const note={id:'N-'+Date.now()+'-'+Math.random().toString(16).slice(2),title,msg,target,date:new Date().toLocaleString('en-GB'),readBy:[]};
+ d.notifications.unshift(note);d.notifications=d.notifications.slice(0,100);save();
+ if(user && (target==='all'||target===user.no))triggerAlert(note);
+ renderNotifications();
+}
+function visibleNotifications(){return d.notifications.filter(n=>(n.target==='all'||n.target===user?.no)&&!(n.readBy||[]).includes(user?.no))}
+function renderNotifications(){
+ const list=document.getElementById('notifyList'),count=document.getElementById('notifyCount');if(!list||!user)return;
+ const ns=visibleNotifications();
+ count.textContent=Math.min(ns.length,99);count.style.display=ns.length?'grid':'none';
+ document.getElementById('notifyHint').textContent=ns.length?ns.length+' update(s) for this account':'No new updates';
+ const msgUnread=(d.messages||[]).filter(m=>m.to===user?.no&&!(m.readBy||[]).includes(user?.no)).length; const nav=document.getElementById('navUnread');if(nav)nav.textContent=msgUnread||''; const ib=document.getElementById('inboxUnread');if(ib)ib.textContent=isBoss()?(d.staffReports||[]).filter(r=>r.status==='New').length||'':'';
+ list.innerHTML=ns.slice(0,8).map(n=>`<div class="notify-item"><b>${n.title}</b><small>${n.msg}</small><small>${n.date}</small></div>`).join('')||'<div style="font-size:10px;padding:10px;color:#71808b">No notifications.</div>';
+}
+function toggleNotifications(){document.getElementById('notifyMenu').classList.toggle('on')}
+function markNotificationsRead(){
+ const key=user?.no||'CampBoss';
+ d.notifications=d.notifications.map(n=>({...n,readBy:[...(n.readBy||[]),key].filter((v,i,a)=>a.indexOf(v)===i)}));
+ save();renderNotifications();document.getElementById('notifyMenu').classList.remove('on');toast('Notifications marked as read')
+}
+function triggerAlert(note){
+ try{
+   if(d.alertSettings.sound){
+     const C=window.AudioContext||window.webkitAudioContext;
+     if(C){const c=new C();if(c.state==='suspended')c.resume();const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=740;g.gain.value=.06;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22)}
+   }
+ }catch(e){}
+ try{if(d.alertSettings.vibrate&&navigator.vibrate)navigator.vibrate([180,80,180,80,260])}catch(e){}
+ if(note)showTopNotification(note);
+}
+function showTopNotification(note){
+ const old=document.getElementById('topAlert');if(old)old.remove();
+ const el=document.createElement('div');el.id='topAlert';el.style.cssText='position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:#0b6b4f;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 12px 30px #071b2b33;max-width:min(92vw,520px);font-size:11px;cursor:pointer';
+ el.innerHTML='<b>🔔 '+escapeHTML(note.title)+'</b><div style="margin-top:3px;line-height:1.4">'+escapeHTML(note.msg)+'</div>';
+ el.onclick=()=>{el.remove();toggleNotifications()};document.body.appendChild(el);setTimeout(()=>el.remove(),6500);
+}
+function setAlertSetting(k,v){d.alertSettings[k]=v;save();toast((k==='sound'?'Sound':'Vibration')+' '+(v?'enabled':'disabled'))}
+function loadAlertSettings(){
+ const s=$('soundToggle'),v=$('vibrateToggle');
+ if(s)s.checked=d.alertSettings.sound!==false;if(v)v.checked=d.alertSettings.vibrate!==false;
+}
+function savePortalSettings(){save();toast('Settings saved')}
+
+function aiQuick(q){
+ const input=document.getElementById('aiInput');
+ if(input){input.value=q; askAI({preventDefault:()=>{}});}
+}
+function aiGo(page){
+ const map={dashboard:'dashboard',spaces:'spaces',guards:'guards',rooms:'villas',villas:'villas',complaints:'complaints',reports:'complaints',announcements:'announcements',requests:'requests',documents:'documents',messages:'messages',myaccount:'myaccount',settings:'settings',inbox:'inbox',ai:'ai'};
+ const p=map[page]||'dashboard';
+ go(p);
+ return p;
+}
+function aiFindGuard(query){
+ const q=String(query||'').toLowerCase();
+ const job=(q.match(/(?:job(?: number)?|number|staff)\s*[:#-]?\s*([a-z]?-?\d{2,})/i)||[])[1];
+ if(job){
+   return d.guards.find(x=>String(x.no).toLowerCase()===job.toLowerCase());
+ }
+ return d.guards.find(x=>q.includes(String(x.name||'').toLowerCase()))||null;
+}
+function aiAnswerGuard(s){
+ if(!s)return '';
+ return `${s.name} (${s.no}) is ${s.status||'listed'} at ${s.area||'an unlisted location'}, ${s.shift||'shift not recorded'}, sleeping room ${s.room||'not assigned'}. Phone: ${s.phone||'not recorded'}.`;
+}
+function aiPageName(low){
+ if(low.includes('dashboard')||low.includes('home'))return 'dashboard';
+ if(low.includes('space'))return 'spaces';
+ if(low.includes('guard')||low.includes('staff'))return 'guards';
+ if(low.includes('room')||low.includes('villa'))return 'villas';
+ if(low.includes('complaint')||low.includes('incident')||low.includes('report'))return 'complaints';
+ if(low.includes('broadcast')||low.includes('announcement'))return 'announcements';
+ if(low.includes('request'))return 'requests';
+ if(low.includes('document'))return 'documents';
+ if(low.includes('message'))return 'messages';
+ if(low.includes('notification'))return 'settings';
+ if(low.includes('account')||low.includes('profile'))return 'myaccount';
+ if(low.includes('setting'))return 'settings';
+ return '';
+}
+function aiOpenForm(low){
+ if(low.includes('register guard')||low.includes('add guard')||low.includes('create guard')){
+   if(!isBoss())return 'Only CampBoss can register a guard. I can open the guard registration form for CampBoss.';
+   openM('guard'); return 'I opened the Register Security Guard form. Complete the required identity, password and assignment fields before saving.';
+ }
+ if(low.includes('add space')||low.includes('capacity')){if(!isBoss())return 'Only CampBoss can change accommodation capacity.';openM('space');return 'I opened Add Accommodation Capacity.';}
+ if(low.includes('add room')||low.includes('create room')){if(!isBoss())return 'Only CampBoss can add rooms.';openM('room');return 'I opened Add Room.';}
+ if(low.includes('new complaint')||low.includes('new incident')){openM('complaint');return 'I opened the incident report form.';}
+ if(low.includes('new announcement')||low.includes('broadcast')){if(!isBoss())return 'Only CampBoss can publish a camp-wide broadcast.';openM('announcement');return 'I opened the broadcast form.';}
+ if(low.includes('new request')||low.includes('camp request')){openM('request');return 'I opened the camp request form.';}
+ return '';
+}
+function askAI(e){
+ if(e&&e.preventDefault)e.preventDefault();
+ const input=document.getElementById('aiInput'),q=(input?.value||'').trim(),low=q.toLowerCase();
+ if(!q)return;
+ addAI('me',q); if(input)input.value='';
+ let answer='', navigated=false;
+
+ // Exact portal actions/navigation.
+ const page=aiPageName(low);
+ if(/^(open|go to|show|take me to|view)\b/.test(low) && page){
+   const opened=aiGo(page); answer=`Opened ${opened.replace('-', ' ')}.`;
+   navigated=true;
+ }
+ if(!answer){
+   const formAnswer=aiOpenForm(low);
+   if(formAnswer)answer=formAnswer;
+ }
+ // Staff lookup: only report fields that actually exist.
+ if(!answer){
+   const s=aiFindGuard(q);
+   if(s){
+     answer=aiAnswerGuard(s);
+     if(low.includes('open')||low.includes('view')||low.includes('show')){aiGo('guards');navigated=true;}
+   }else if(/job\s*(number)?\s*[:#-]?\s*[a-z]?-?\d+/i.test(q)){
+     answer='I could not find that company job number in the current portal records.';
+   }
+ }
+ // Verified data summaries.
+ if(!answer && (low.includes('available')||low.includes('capacity')||low.includes('space'))){
+   const[t,o,a]=totals();
+   const details=d.spaces.map(x=>`${x.name}: ${x.total-x.occupied} available of ${x.total}`).join('; ');
+   answer=`Verified portal capacity: ${t} total spaces, ${o} occupied and ${a} available. ${details||'No space categories are recorded.'}`;
+   if(low.includes('show')||low.includes('open')){aiGo('spaces');navigated=true;}
+ }
+ if(!answer && (low.includes('how many')||low.includes('list')) && low.includes('guard')){
+   answer=`There are ${d.guards.length} guard record(s) in the current portal data.`;
+   if(low.includes('list')){aiGo('guards');navigated=true;}
+ }
+ if(!answer && low.includes('room')){
+   const availableRooms=d.rooms.filter(x=>Number(x.occ||0)<Number(x.cap||0));
+   answer=`The portal has ${d.rooms.length} registered rooms. ${availableRooms.length} have remaining capacity. I can show the full room register.`;
+   if(low.includes('show')||low.includes('open')||low.includes('available')){aiGo('villas');navigated=true;}
+ }
+ if(!answer && low.includes('document')){
+   answer=`There are ${visibleDocumentsCount()} document(s) visible to this account.`;
+   if(low.includes('show')||low.includes('open')){aiGo('documents');navigated=true;}
+ }
+ if(!answer && (low.includes('notification')||low.includes('alert'))){
+   answer=`There are ${visibleNotifications().length} unread notification(s) visible to this account.`;
+   if(low.includes('show')||low.includes('open')){aiGo('settings');navigated=true;}
+ }
+ if(!answer && (low.includes('who am i')||low.includes('my account')||low.includes('my role'))){
+   answer=`You are signed in as ${user?.name||'the current account'}${user?.no?` (job ${user.no})`:''}, role: ${user?.role||'unknown'}.`;
+ }
+ if(!answer && (low.includes('delete')||low.includes('remove'))){
+   answer=isBoss()
+     ?'Deletion is available only through the relevant management screen so the exact record can be reviewed before it is removed. Tell me what record to remove and I will open the correct section.'
+     :'Only CampBoss has permission to delete portal records.';
+ }
+ // External web search: open a search page, without pretending the static app performed AI web research.
+ if(!answer && (low.startsWith('search web')||low.startsWith('web search')||low.startsWith('search the internet'))){
+   const term=q.replace(/^(search web|web search|search the internet)\s*/i,'').trim();
+   if(term){
+     window.open('https://www.google.com/search?q='+encodeURIComponent(term),'_blank','noopener');
+     answer=`I opened a web search for “${term}” in a new browser tab. I have not treated those external results as verified camp records.`;
+   }else answer='Tell me what you want to search for on the internet.';
+ }
+ if(!answer){
+   answer='I can work with the portal records and navigation, but I will not guess. Try a company job number, “show available spaces”, “open documents”, “register guard”, “new incident”, “open messages”, or “search web for …”.';
+ }
+ addAI('bot',answer);
+ if(navigated) setTimeout(()=>render(),50);
+}
+function addAI(who,msg){
+ const c=document.getElementById('aiChat');if(!c)return;
+ const wrap=document.createElement('div');wrap.className='ai-msg '+who;
+ if(who==='bot'){
+   const logo=document.getElementById('aiLogo');
+   wrap.innerHTML=(logo?'<img src="'+logo.src+'" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;border-radius:5px">':'')+escapeHTML(msg);
+ }else wrap.textContent=msg;
+ c.appendChild(wrap);c.scrollTop=c.scrollHeight;
+}
+function visibleDocumentsCount(){return d.documents.filter(x=>isBoss()||x.sharedTo.includes('ALL')||x.sharedTo.includes(user?.no)).length}
+function initAILogo(){
+ const target=document.getElementById('aiLogo');
+ if(!target)return;
+ const source=document.querySelector('img[alt="NSS Company Logo"]');
+ if(source&&source.src)target.src=source.src;
+ else {target.style.display='none';}
+}
+function pollNotifications(){
+ if(!user)return;
+ const fresh=JSON.parse(localStorage.getItem(K)||'null');if(!fresh)return;
+ d=fresh;d.guards=(d.guards||[]).map(x=>({...x,shift:x.shift||'Shift A',room:x.room||'Not assigned'}));d.documents=d.documents||[];d.notifications=d.notifications||[];d.alertSettings=d.alertSettings||{sound:true,vibrate:true};
+d.messages=d.messages||[];d.staffReports=d.staffReports||[];d.readReports=d.readReports||{};d.documents=d.documents||[];
+ const ns=visibleNotifications();const sig=ns.map(x=>x.id).join('|');
+ if(lastNotificationSignature && sig!==lastNotificationSignature){const freshNote=ns.find(n=>!lastNotificationSignature.split('|').includes(n.id));if(freshNote)triggerAlert(freshNote);}
+ lastNotificationSignature=sig;renderNotifications();renderDocuments();renderMessageUsers();renderStaffReports();
+}
+setInterval(pollNotifications,3000);
+window.addEventListener('error',function(e){console.error('Portal error:',e.error||e.message);});
+window.addEventListener('unhandledrejection',function(e){console.error('Portal rejection:',e.reason);});
+
+
+addEventListener('load',()=>{initAILogo();if(sessionStorage.user){try{start(JSON.parse(sessionStorage.user))}catch(e){sessionStorage.clear()}}});
+
+/* AI reliability patch */
+let aiLanguage='en', aiReg={active:false,step:0,data:{},confirm:false};
+const aiQ={en:['What is the staff member’s full name?','What is the company job number?','What is the mobile number?','What is the National / Staff ID?','What is the nationality?','What is the work location?','What shift should be assigned?','What is the sleeping room?','Set a temporary password (minimum 6 characters).'],hi:['स्टाफ का पूरा नाम क्या है?','कंपनी जॉब नंबर क्या है?','मोबाइल नंबर क्या है?','नेशनल / स्टाफ आईडी क्या है?','राष्ट्रीयता क्या है?','कार्य स्थान क्या है?','कौन-सी शिफ्ट देनी है?','सोने का कमरा कौन-सा है?','अस्थायी पासवर्ड दें (कम से कम 6 अक्षर)।'],bn:['স্টাফের পূর্ণ নাম কী?','কোম্পানি জব নম্বর কী?','মোবাইল নম্বর কী?','ন্যাশনাল / স্টাফ আইডি কী?','জাতীয়তা কী?','কাজের স্থান কী?','কোন শিফট দিতে হবে?','ঘুমানোর রুম কোনটি?','অস্থায়ী পাসওয়ার্ড দিন (কমপক্ষে ৬ অক্ষর)।'],ne:['कर्मचारीको पूरा नाम के हो?','कम्पनी जागिर नम्बर के हो?','मोबाइल नम्बर के हो?','राष्ट्रिय / कर्मचारी आईडी के हो?','राष्ट्रियता के हो?','काम गर्ने स्थान के हो?','कुन शिफ्ट दिने?','सुत्ने कोठा कुन हो?','अस्थायी पासवर्ड दिनुहोस् (कम्तीमा ६ अक्षर)।'],ar:['ما الاسم الكامل للموظف؟','ما رقم الوظيفة؟','ما رقم الهاتف المحمول؟','ما رقم الهوية الوطنية / الموظف؟','ما الجنسية؟','ما موقع العمل؟','ما الوردية؟','ما غرفة السكن؟','ضع كلمة مرور مؤقتة (6 أحرف على الأقل).']};
+const aiMsg={en:{set:'Language set to English.',start:'I will register the new staff member step by step.',confirm:'Reply “confirm” to create this staff record, or “cancel” to stop.',saved:'Staff account created successfully.',cancel:'Registration cancelled.',perm:'Only CampBoss can register staff.',missing:'I could not find that job number in the current portal records.'},hi:{set:'भाषा हिंदी पर सेट है।',start:'मैं नए स्टाफ सदस्य का पंजीकरण चरण-दर-चरण करूंगा।',confirm:'रिकॉर्ड बनाने के लिए “confirm” और रोकने के लिए “cancel” लिखें।',saved:'स्टाफ खाता सफलतापूर्वक बनाया गया।',cancel:'पंजीकरण रद्द किया गया।',perm:'नया स्टाफ केवल CampBoss पंजीकृत कर सकता है।',missing:'मौजूदा पोर्टल रिकॉर्ड में यह जॉब नंबर नहीं मिला।'},bn:{set:'ভাষা বাংলা সেট করা হয়েছে।',start:'আমি ধাপে ধাপে নতুন স্টাফ নিবন্ধন করব।',confirm:'তৈরি করতে “confirm” এবং বন্ধ করতে “cancel” লিখুন।',saved:'স্টাফ অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে।',cancel:'নিবন্ধন বাতিল করা হয়েছে।',perm:'নতুন স্টাফ শুধু CampBoss নিবন্ধন করতে পারেন।',missing:'বর্তমান পোর্টাল রেকর্ডে এই জব নম্বর পাওয়া যায়নি।'},ne:{set:'भाषा नेपालीमा सेट गरिएको छ।',start:'म नयाँ कर्मचारीलाई चरणबद्ध रूपमा दर्ता गर्नेछु।',confirm:'बनाउन “confirm” र रोक्न “cancel” लेख्नुहोस्।',saved:'कर्मचारी खाता सफलतापूर्वक बनाइयो।',cancel:'दर्ता रद्द गरियो।',perm:'नयाँ कर्मचारी केवल CampBoss ले दर्ता गर्न सक्छ।',missing:'हालको पोर्टलमा यो जागिर नम्बर भेटिएन।'},ar:{set:'تم ضبط اللغة على العربية.',start:'سأقوم بتسجيل الموظف الجديد خطوة بخطوة.',confirm:'اكتب “confirm” للإنشاء أو “cancel” للإلغاء.',saved:'تم إنشاء حساب الموظف بنجاح.',cancel:'تم إلغاء التسجيل.',perm:'فقط CampBoss يمكنه تسجيل الموظفين.',missing:'لم أجد رقم الوظيفة هذا في سجلات البوابة الحالية.'}};
+function setAILanguage(v){aiLanguage=aiMsg[v]?v:'en';let s=document.getElementById('aiLanguage');if(s)s.value=aiLanguage;addAI('bot',aiMsg[aiLanguage].set)}
+function aiStartRegistration(){if(!isBoss()){addAI('bot',aiMsg[aiLanguage].perm);return}aiReg={active:true,step:0,data:{},confirm:false};addAI('bot',aiMsg[aiLanguage].start);addAI('bot',aiQ[aiLanguage][0])}
+function aiSummary(x){let l=['Full name','Job number','Mobile','National / Staff ID','Nationality','Work location','Shift','Sleeping room','Temporary password'];return l.map((k,i)=>k+': '+x[['name','no','phone','nid','nationality','area','shift','room','password'][i]]).join('\n')}
+function aiRegister(q){let z=q.trim(),lo=z.toLowerCase();if(lo==='cancel'||lo==='stop'){aiReg={active:false,step:0,data:{},confirm:false};return aiMsg[aiLanguage].cancel}if(aiReg.confirm){if(['confirm','yes','save','create','ok','okay'].includes(lo)){let x=aiReg.data;if(d.guards.some(g=>String(g.no)===String(x.no)))return 'That company job number already exists.';if(user&&String(user.no)===String(x.no))return 'That job number belongs to the current account. Use another number.';d.guards.push({name:x.name,no:String(x.no),phone:x.phone,area:x.area||'Not recorded',status:'Active',password:x.password,nid:x.nid,nationality:x.nationality||'Not recorded',shift:x.shift||'Not assigned',room:x.room||'Not assigned'});save();try{addNotification('New staff registered',x.name+' ('+x.no+') was registered through AI Assist.','all')}catch(e){}aiReg={active:false,step:0,data:{},confirm:false};return aiMsg[aiLanguage].saved+'\n\n'+aiSummary(x)}return aiMsg[aiLanguage].confirm}
+let fields=['name','no','phone','nid','nationality','area','shift','room','password'],f=fields[aiReg.step],v=z;if(f==='no'&&!/^\d+$/.test(v))return 'Job number must contain numbers only.';if(f==='phone'&&v.replace(/\D/g,'').length<7)return 'Please enter a valid mobile number.';if(f==='password'&&v.length<6)return 'Password must be at least 6 characters.';if(f==='no'&&d.guards.some(g=>String(g.no)===v))return 'That job number already exists. Enter another number.';aiReg.data[f]=v;aiReg.step++;if(aiReg.step<fields.length)return aiQ[aiLanguage][aiReg.step];aiReg.confirm=true;return aiSummary(aiReg.data)+'\n\n'+aiMsg[aiLanguage].confirm}
+function aiFindGuard(q){let s=String(q).toLowerCase(),m=s.match(/(?:job\s*(?:number)?|company\s*job|staff\s*(?:number|no)|number|id)\s*[:#-]?\s*(\d{2,})/i),n=(m&&m[1])||(s.match(/\b\d{2,}\b/)||[])[0];if(n){let g=d.guards.find(x=>String(x.no).replace(/^G-/i,'')===String(n));if(g)return g}let g=d.guards.find(x=>String(x.name||'').toLowerCase()===s);if(g)return g;let pd=s.replace(/\D/g,'');return pd.length>=7?d.guards.find(x=>String(x.phone||'').replace(/\D/g,'').includes(pd)):null}
+function aiAnswerGuard(s){let L={en:['Staff record found.','Full name','Company job number','Mobile number','Work location','Shift','Sleeping room','Nationality','National / Staff ID','Status'],hi:['स्टाफ रिकॉर्ड मिला।','पूरा नाम','कंपनी जॉब नंबर','मोबाइल नंबर','कार्य स्थान','शिफ्ट','सोने का कमरा','राष्ट्रीयता','नेशनल / स्टाफ आईडी','स्थिति'],bn:['স্টাফ রেকর্ড পাওয়া গেছে।','পূর্ণ নাম','কোম্পানি জব নম্বর','মোবাইল নম্বর','কাজের স্থান','শিফট','ঘুমানোর রুম','জাতীয়তা','ন্যাশনাল / স্টাফ আইডি','স্ট্যাটাস'],ne:['कर्मचारी रेकर्ड भेटियो।','पूरा नाम','कम्पनी जागिर नम्बर','मोबाइल नम्बर','काम गर्ने स्थान','शिफ्ट','सुत्ने कोठा','राष्ट्रियता','राष्ट्रिय / कर्मचारी आईडी','स्थिति'],ar:['تم العثور على سجل الموظف.','الاسم الكامل','رقم الوظيفة','رقم الهاتف','موقع العمل','الوردية','غرفة السكن','الجنسية','الهوية الوطنية / الموظف','الحالة']}[aiLanguage]||L.en;let v=[s.name,s.no,s.phone||'Not recorded',s.area||'Not recorded',s.shift||'Not recorded',s.room||'Not assigned',s.nationality||'Not recorded',s.nid||'Not recorded',s.status||'Not recorded'];return L[0]+'\n'+L.slice(1).map((x,i)=>x+': '+v[i]).join('\n')}
+function askAI(e){if(e&&e.preventDefault)e.preventDefault();let i=document.getElementById('aiInput'),q=(i?.value||'').trim(),lo=q.toLowerCase();if(!q)return;addAI('me',q);if(i)i.value='';if(aiReg.active){let r=aiRegister(q);if(r)addAI('bot',r);return}let lm=lo.match(/^(?:switch|set|change)\s+(?:language\s+)?(?:to\s+)?(english|hindi|bengali|bangla|nepali|arabic)$/);if(lm){let mp={english:'en',hindi:'hi',bengali:'bn',bangla:'bn',nepali:'ne',arabic:'ar'};setAILanguage(mp[lm[1]]);return}if(/\b(register|create|add)\b.*\b(staff|guard|employee)\b|\bnew\s+(staff|guard)\b/.test(lo)){aiStartRegistration();return}let ans='',page=aiPageName(lo);if(/^(open|go to|show|take me to|view)\b/.test(lo)&&page){aiGo(page);ans='Opened '+page+'.'}if(!ans){let fa=aiOpenForm(lo);if(fa)ans=fa}if(!ans){let g=aiFindGuard(q);if(g)ans=aiAnswerGuard(g);else if(/(?:job\s*(?:number)?|company\s*job|staff\s*(?:number|no)|number|id)\s*[:#-]?\s*\d{2,}/i.test(q))ans=aiMsg[aiLanguage].missing}if(!ans&&(lo.includes('available')||lo.includes('capacity')||lo.includes('space'))){let t=totals(),details=d.spaces.map(x=>x.name+': '+(x.total-x.occupied)+' available of '+x.total).join('; ');ans='Verified portal capacity: '+t[0]+' total, '+t[1]+' occupied, '+t[2]+' available. '+details}if(!ans&&(lo.includes('how many')||lo.includes('list'))&&lo.includes('guard'))ans='There are '+d.guards.length+' guard record(s) in the current portal data.';if(!ans&&lo.includes('room'))ans='The portal has '+d.rooms.length+' registered rooms.';if(!ans&&(lo.includes('who am i')||lo.includes('my account')||lo.includes('my role')))ans='You are signed in as '+(user?.name||'the current account')+(user?.no?' (job '+user.no+')':'')+', role: '+(user?.role||'unknown')+'.';if(!ans&&(lo.startsWith('search web')||lo.startsWith('web search'))){let term=q.replace(/^(search web|web search)\s*/i,'');window.open('https://www.google.com/search?q='+encodeURIComponent(term),'_blank','noopener');ans='I opened a web search for “'+term+'”.'}if(!ans)ans='I can search staff records, navigate the portal, register staff, and respond in English, Hindi, Bengali, Nepali or Arabic. Try “find job number 1001” or “register new staff”.';addAI('bot',ans)}
+
+
+/* FINAL AI + NOTIFICATION FIXES */
+function aiExtractJobNumber(q){
+ const s=String(q||'').trim();
+ const patterns=[
+  /(?:company\s+)?job\s*(?:number|no\.?|#)?\s*(?:is|=|:|-)?\s*([a-z]?-?\d{2,})/i,
+  /(?:registered|staff|employee|guard)\s*(?:job\s*)?(?:number|no\.?|id)?\s*(?:is|=|:|-)?\s*([a-z]?-?\d{2,})/i,
+  /(?:find|search|lookup|show|where\s+is)\s+(?:job\s*(?:number|no\.?)?\s*)?([a-z]?-?\d{2,})/i
+ ];
+ for(const re of patterns){const m=s.match(re);if(m&&m[1])return m[1].replace(/^G-/i,'');}
+ const standalone=s.match(/\b\d{2,}\b/);return standalone?standalone[0]:'';
+}
+function aiFindGuard(q){
+ const raw=String(q||'').trim(),s=raw.toLowerCase(),n=aiExtractJobNumber(raw);
+ if(n){const g=d.guards.find(x=>String(x.no).replace(/^G-/i,'').toLowerCase()===String(n).toLowerCase());if(g)return g;}
+ const exact=d.guards.find(x=>String(x.name||'').toLowerCase()===s);if(exact)return exact;
+ const byName=d.guards.find(x=>s.includes(String(x.name||'').toLowerCase()));if(byName)return byName;
+ const pd=s.replace(/\D/g,'');return pd.length>=7?d.guards.find(x=>String(x.phone||'').replace(/\D/g,'').includes(pd)):null;
+}
+function aiAnswerGuard(s){
+ const labels={
+  en:['Staff record found.','Full name','Company job number','Mobile number','Work location','Shift','Sleeping room','Nationality','National / Staff ID','Status'],
+  hi:['स्टाफ रिकॉर्ड मिला।','पूरा नाम','कंपनी जॉब नंबर','मोबाइल नंबर','कार्य स्थान','शिफ्ट','सोने का कमरा','राष्ट्रीयता','नेशनल / स्टाफ आईडी','स्थिति'],
+  bn:['স্টাফ রেকর্ড পাওয়া গেছে।','পূর্ণ নাম','কোম্পানি জব নম্বর','মোবাইল নম্বর','কাজের স্থান','শিফট','ঘুমানোর রুম','জাতীয়তা','ন্যাশনাল / স্টাফ আইডি','স্ট্যাটাস'],
+  ne:['कर्मचारी रेकर्ड भेटियो।','पूरा नाम','कम्पनी जागिर नम्बर','मोबाइल नम्बर','काम गर्ने स्थान','शिफ्ट','सुत्ने कोठा','राष्ट्रियता','राष्ट्रिय / कर्मचारी आईडी','स्थिति'],
+  ar:['تم العثور على سجل الموظف.','الاسم الكامل','رقم الوظيفة','رقم الهاتف','موقع العمل','الوردية','غرفة السكن','الجنسية','الهوية الوطنية / الموظف','الحالة']
+ }[aiLanguage]||null;
+ const L=labels||['Staff record found.','Full name','Company job number','Mobile number','Work location','Shift','Sleeping room','Nationality','National / Staff ID','Status'];
+ const v=[s.name,s.no,s.phone||'Not recorded',s.area||'Not recorded',s.shift||'Not recorded',s.room||'Not assigned',s.nationality||'Not recorded',s.nid||'Not recorded',s.status||'Not recorded'];
+ return L[0]+'\n'+L.slice(1).map((x,i)=>x+': '+v[i]).join('\n');
+}
+function askAI(e){
+ if(e&&e.preventDefault)e.preventDefault();
+ const input=document.getElementById('aiInput'),q=(input?.value||'').trim(),low=q.toLowerCase();
+ if(!q)return;addAI('me',q);if(input)input.value='';
+ if(aiReg.active){const r=aiRegister(q);if(r)addAI('bot',r);return;}
+ const lm=low.match(/^(?:switch|set|change)\s+(?:language\s+)?(?:to\s+)?(english|hindi|bengali|bangla|nepali|arabic)$/);
+ if(lm){const mp={english:'en',hindi:'hi',bengali:'bn',bangla:'bn',nepali:'ne',arabic:'ar'};setAILanguage(mp[lm[1]]);return;}
+ if(/\b(register|create|add)\b.*\b(staff|guard|employee)\b|\bnew\s+(staff|guard)\b/.test(low)){aiStartRegistration();return;}
+ let answer='',navigated=false;
+ const page=aiPageName(low);
+ if(/^(open|go to|show|take me to|view)\b/.test(low)&&page){const opened=aiGo(page);answer=`Opened ${opened.replace('-', ' ')}.`;navigated=true;}
+ if(!answer){const formAnswer=aiOpenForm(low);if(formAnswer)answer=formAnswer;}
+ if(!answer){
+  const n=aiExtractJobNumber(q),s=aiFindGuard(q);
+  if(s){answer=aiAnswerGuard(s);if(/\b(open|view|show)\b/.test(low)){aiGo('guards');navigated=true;}}
+  else if(n&&user&&String(user.no)===String(n)){answer=`Company job number ${n} belongs to the current ${user.role||'portal'} account (${user.name||'current user'}). It is not a separate staff record in the guard register.`;}
+  else if(n){answer=aiMsg[aiLanguage].missing+'\n\nI checked the current staff register by company job number, including phrases such as “job number is '+n+'”.';}
+ }
+ if(!answer&&(low.includes('available')||low.includes('capacity')||low.includes('space'))){const[t,o,a]=totals();const details=d.spaces.map(x=>`${x.name}: ${x.total-x.occupied} available of ${x.total}`).join('; ');answer=`Verified portal capacity: ${t} total spaces, ${o} occupied and ${a} available. ${details||'No space categories are recorded.'}`;if(low.includes('show')||low.includes('open')){aiGo('spaces');navigated=true;}}
+ if(!answer&&(low.includes('how many')||low.includes('list'))&&low.includes('guard')){answer=`There are ${d.guards.length} guard record(s) in the current portal data.`;if(low.includes('list')){aiGo('guards');navigated=true;}}
+ if(!answer&&low.includes('room')){const availableRooms=d.rooms.filter(x=>Number(x.occ||0)<Number(x.cap||0));answer=`The portal has ${d.rooms.length} registered rooms. ${availableRooms.length} have remaining capacity.`;if(low.includes('show')||low.includes('open')||low.includes('available')){aiGo('villas');navigated=true;}}
+ if(!answer&&low.includes('document')){answer=`There are ${visibleDocumentsCount()} document(s) visible to this account.`;if(low.includes('show')||low.includes('open')){aiGo('documents');navigated=true;}}
+ if(!answer&&(low.includes('notification')||low.includes('alert'))){answer=`There are ${visibleNotifications().length} unread notification(s) visible to this account.`;if(low.includes('show')||low.includes('open')){toggleNotifications();}}
+ if(!answer&&(low.includes('who am i')||low.includes('my account')||low.includes('my role'))){answer=`You are signed in as ${user?.name||'the current account'}${user?.no?` (job ${user.no})`:''}, role: ${user?.role||'unknown'}.`;}
+ if(!answer&&(low.startsWith('search web')||low.startsWith('web search')||low.startsWith('search the internet'))){const term=q.replace(/^(search web|web search|search the internet)\s*/i,'').trim();if(term){window.open('https://www.google.com/search?q='+encodeURIComponent(term),'_blank','noopener');answer=`I opened a web search for “${term}” in a new browser tab.`;}else answer='Tell me what you want to search for on the internet.';}
+ if(!answer)answer='I can search the current portal records without guessing. Try “job number is 1001”, “find 1002”, “show available spaces”, or “register new staff”.';
+ addAI('bot',answer);if(navigated)setTimeout(()=>render(),50);
+}
+
+/* AI 2.0 SERVER MODE: replaces local rule matching with a real model + server tools. */
+let ai2History=[];
+async function askAI(e){
+ if(e&&e.preventDefault)e.preventDefault();
+ const input=document.getElementById('aiInput'); const q=(input?.value||'').trim(); if(!q)return;
+ addAI('me',q); if(input)input.value='';
+ addAI('bot','⏳ Checking the secure portal database…');
+ try{
+   const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:ai2History})});
+   const j=await r.json();
+   const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
+   if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=j.answer||j.error||'No response.'; else addAI('bot',j.answer||j.error||'No response.');
+   ai2History.push({role:'user',content:q},{role:'assistant',content:j.answer||j.error||''});
+ }catch(err){
+   const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
+   const msg='AI 2.0 is not connected to its server yet. Start the backend and open this page through http://localhost:3000 (not as a file).';
+   if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=msg; else addAI('bot',msg);
+ }
+}
+</script></body></html>
