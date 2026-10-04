@@ -951,12 +951,14 @@ async function askAI(e){
  addAI('me',q); if(input)input.value='';
  addAI('bot','⏳ Checking the secure portal database…');
  try{
-   const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:ai2History})});
+   const r=await fetch('https://al-nasr-backend.onrender.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});
    const j=await r.json();
    const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
-   if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=j.answer||j.error||'No response.'; else addAI('bot',j.answer||j.error||'No response.');
-   ai2History.push({role:'user',content:q},{role:'assistant',content:j.answer||j.error||''});
+   const text = j.reply || j.answer || j.error || 'No response.';
+   if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=text; else addAI('bot',text);
+   ai2History.push({role:'user',content:q},{role:'assistant',content:text});
  }catch(err){
+
    const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
    const msg='AI 2.0 is not connected to its server yet. Start the backend and open this page through http://localhost:3000 (not as a file).';
    if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=msg; else addAI('bot',msg);
