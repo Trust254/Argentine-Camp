@@ -197,7 +197,7 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <button id="myAccountBtn" onclick="go('myaccount',this)">👤 &nbsp; My Account</button>
 <button id="messagesBtn" onclick="go('messages',this)">💬 &nbsp; Messages <span class="nav-unread" id="navUnread"></span></button>
 <button onclick="go('documents',this)">▤ &nbsp; Documents</button>
-<button onclick="go('ai',this)">✦ &nbsp; AI Assist</button><label style="display:block;margin-top:15px">ADMINISTRATION</label><button id="usersBtn" onclick="go('users',this)">⚙ &nbsp; Users & Roles</button><button onclick="go('settings',this)">◉ &nbsp; Settings</button></nav><div class="profile"><div class="avatar" id="av">CB</div><div><b id="un">CampBoss</b><small id="ur">Administrator</small></div></div></aside><main class="main"><header class="top"><div style="display:flex;align-items:center;gap:10px"><button class="mobile btn outline" onclick="side.classList.toggle('open')">☰</button><h2 id="title">Command Dashboard</h2></div><div style="display:flex;align-items:center;gap:8px"><div class="notify-wrap"><button class="notify-btn" id="notifyBell" onclick="toggleNotifications()" title="Notifications">🔔<span class="notify-count" id="notifyCount">0</span></button><div class="notify-menu" id="notifyMenu"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>Notifications</b><button class="btn outline" style="padding:5px 8px;font-size:9px" onclick="markNotificationsRead()">Mark all read</button></div><div id="notifyHint" style="font-size:9px;color:#71808b;margin:6px 0 8px">No new updates</div><div id="notifyList"></div></div></div><span class="badge" id="pill">CAMPBOSS</span><button class="btn outline" onclick="logout()">Logout</button></div></header><div class="content">
+<button onclick="go('ai',this)">✦ &nbsp; Robot Assist</button><label style="display:block;margin-top:15px">ADMINISTRATION</label><button id="usersBtn" onclick="go('users',this)">⚙ &nbsp; Users & Roles</button><button onclick="go('settings',this)">◉ &nbsp; Settings</button></nav><div class="profile"><div class="avatar" id="av">CB</div><div><b id="un">CampBoss</b><small id="ur">Administrator</small></div></div></aside><main class="main"><header class="top"><div style="display:flex;align-items:center;gap:10px"><button class="mobile btn outline" onclick="side.classList.toggle('open')">☰</button><h2 id="title">Command Dashboard</h2></div><div style="display:flex;align-items:center;gap:8px"><div class="notify-wrap"><button class="notify-btn" id="notifyBell" onclick="toggleNotifications()" title="Notifications">🔔<span class="notify-count" id="notifyCount">0</span></button><div class="notify-menu" id="notifyMenu"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>Notifications</b><button class="btn outline" style="padding:5px 8px;font-size:9px" onclick="markNotificationsRead()">Mark all read</button></div><div id="notifyHint" style="font-size:9px;color:#71808b;margin:6px 0 8px">No new updates</div><div id="notifyList"></div></div></div><span class="badge" id="pill">CAMPBOSS</span><button class="btn outline" onclick="logout()">Logout</button></div></header><div class="content">
 <section id="p-dashboard" class="page on"><div class="welcome"><div><h1>Camp Command Dashboard</h1><p>Live view of security, accommodation capacity and Kenyan, Sudanese and Asian spaces.</p></div><button class="btn primary" onclick="openM('guard')">＋ Register Guard</button></div><div class="cards"><div class="card"><div class="ico">⌂</div><div class="num" id="total">150</div><div class="lab">Total Spaces</div></div><div class="card"><div class="ico">✓</div><div class="num" id="occ">87</div><div class="lab">Occupied Spaces</div></div><div class="card"><div class="ico">□</div><div class="num" id="avail">63</div><div class="lab">Available Spaces</div></div><div class="card"><div class="ico">!</div><div class="num" id="openCount">0</div><div class="lab">Open Reports</div></div></div><div class="panel"><div class="head"><div><h3>Available Space by Category</h3><p>Clear capacity view for allocation.</p></div><button class="btn outline" onclick="go('spaces')">Manage spaces →</button></div><div class="spaces" id="spaceCards"></div></div><div class="two"><div class="panel"><div class="head"><div><h3>Accommodation Zones</h3><p>Tap a villa to filter its rooms.</p></div></div><div class="villas" id="villaCards"></div></div><div class="panel"><div class="head"><div><h3>Recent Activity</h3><p>Latest portal events.</p></div></div><div class="activity" id="activity"></div></div></div></section>
 <section id="p-spaces" class="page"><div class="welcome"><div><h1>Available Spaces</h1><p>Kenyan, Sudanese and Asian accommodation capacity.</p></div><button class="btn gold" onclick="openM('space')">＋ Add Capacity</button></div><div class="panel"><div class="spaces" id="spaceCards2"></div></div><div class="panel"><div class="head"><h3>Space Allocation Register</h3></div><div class="tablewrap"><table class="table"><thead><tr><th>Category</th><th>Total</th><th>Occupied</th><th>Available</th><th>Status</th></tr></thead><tbody id="spaceTable"></tbody></table></div></div></section>
 <section id="p-guards" class="page"><div class="welcome"><div><h1>Guards & Residents</h1><p>Registered security personnel and their assigned areas.</p></div><button class="btn primary" onclick="openM('guard')">＋ Add Guard</button></div><div class="panel"><input id="gs" placeholder="Search guards..." oninput="renderGuards()"><div class="tablewrap" style="margin-top:15px"><table class="table"><thead><tr><th>Name</th><th>Number</th><th>Phone</th><th>Area</th><th>Status</th></tr></thead><tbody id="guardTable"></tbody></table></div></div></section>
@@ -269,7 +269,7 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <div class="welcome"><div><h1>Documents</h1><p id="documentsIntro">CampBoss can share instructions, rosters and other documents with selected staff.</p></div><button id="shareDocumentBtn" class="btn primary" onclick="openM('document')">＋ Share Document</button></div>
 <div class="doc-grid" id="documentGrid"></div>
 </section><section id="p-ai" class="page">
-<div class="welcome"><div><h1>AI Assist</h1><p>Company-branded assistant for verified portal records and portal actions.</p></div></div>
+<div class="welcome"><div><h1>Robot Assist</h1><p>Company-branded assistant for verified portal records and portal actions.</p></div></div>
 <div class="panel">
 <div class="ai-head">
   <img id="aiLogo" class="ai-logo" alt="Al-Nasr Star Security AI logo">
@@ -285,9 +285,9 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
   <button type="button" class="btn outline" onclick="aiQuick('Show reports')">Reports</button>
   <button type="button" class="btn outline" onclick="aiQuick('Open messages')">Messages</button><button type="button" class="btn gold" onclick="aiStartRegistration()">＋ Register Staff with AI</button><select id="aiLanguage" onchange="setAILanguage(this.value)" style="padding:8px;border:1px solid #dfe6ea;border-radius:10px;font-size:10px"><option value="en">English</option><option value="hi">Hindi</option><option value="bn">বাংলা / Bengali</option><option value="ne">नेपाली / Nepali</option><option value="ar">العربية / Arabic</option></select>
 </div>
-<div class="ai-chat" id="aiChat"><div class="ai-msg bot">Hello. I am the Al-Nasr Star Security AI assistant. I can search the portal records, answer questions using verified data, navigate the portal, and open the correct management forms for you. I will not invent missing information.</div></div>
+<div class="ai-chat" id="aiChat"><div class="ai-msg bot">Hello. I am the Al-Nasr Star Security Robot assistant. I can search the portal records, answer questions using verified data, navigate the portal, and open the correct management forms for you. I will not invent missing information.</div></div>
 <form onsubmit="askAI(event)" style="display:flex;gap:8px;margin-top:10px"><input id="aiInput" autocomplete="off" placeholder="Ask: Where does job number 1001 sleep?" required style="flex:1"><button class="btn primary">Ask AI</button></form>
-<div class="ai-note">Portal actions are permission-controlled. CampBoss-only operations remain restricted to CampBoss. External internet research requires a server/API connection; this browser-only page cannot safely hold an AI API key.</div>
+<div class="ai-note">Portal actions are permission-controlled. CampBoss-only operations remain restricted to CampBoss. External internet research requires a server/API connection; this browser-only page cannot safely hold an assistant API key.</div>
 </div>
 </section><section id="p-inbox" class="page">
 <div class="welcome"><div><h1>Staff Reports</h1><p>Complaints, incidents and information submitted by Security Guards.</p></div></div>
@@ -298,7 +298,7 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <label style="display:flex;gap:9px;align-items:center;font-size:11px;margin:8px 0"><input type="checkbox" id="vibrateToggle" checked onchange="setAlertSetting('vibrate',this.checked)"> Vibration alert</label>
 </div><button class="btn primary" onclick="savePortalSettings()">Save Settings</button></div></section>
 </div></main>
-<button class="ai-fab" onclick="go('ai')" title="AI Assist">✦</button>
+<button class="ai-fab" onclick="go('ai')" title="Robot Assist">✦</button>
 </div>
 <!-- modals -->
 <div class="modal" id="m-guard"><div class="modalbox"><div class="modalhead"><h3>Register Security Guard</h3><button type="button" class="close" onclick="closeM('guard')">×</button></div><form onsubmit="addGuard(event)"><div class="grid">
@@ -324,7 +324,36 @@ MrOv12k/ur3qiH+UbkvNapq/wbf6P4pnJ/TbfZ02ntWrNqixatqKLdqlU00r0SWEWinq6Pj966Kc6MJT
 <div class="field"><label>Share with selected staff</label><div class="check-list" id="staffChecks"></div></div>
 <button class="btn primary" style="width:100%">Share Document</button></form></div></div><div class="modal" id="m-request"><div class="modalbox"><div class="modalhead"><h3>New Camp Request</h3><button class="close" onclick="closeM('request')">×</button></div><form onsubmit="addRequest(event)"><div class="grid"><div class="field"><label>Request</label><input id="qq" required></div><div class="field"><label>Requested By</label><input id="qb" required></div><div class="field"><label>Category</label><select id="qc"><option>Accommodation</option><option>Access</option><option>Maintenance</option><option>Security</option></select></div><div class="field"><label>Priority</label><select id="qp"><option>Normal</option><option>High</option><option>Urgent</option></select></div></div><button class="btn primary" style="width:100%">Submit Request</button></form></div></div>
 <script>
-const K='alnasr-v3';const base={guards:[{name:'Mohammed Hassan',no:'1001',phone:'+254 711 111 111',area:'Gate A',status:'Active',password:'demo123',nid:'1',shift:'Shift A',room:'GV-01 / Room 101'},{name:'Abdi Omar',no:'1002',phone:'+254 722 222 222',area:'Villa Zone',status:'Active',password:'demo123',nid:'2',shift:'Shift B',room:'GV-02 / Room 202'}],spaces:[{name:'Kenyan Spaces',flag:'🇰🇪',total:55,occupied:31},{name:'Sudanese Spaces',flag:'🇸🇩',total:35,occupied:20},{name:'Asian Spaces',flag:'🌏',total:30,occupied:18}],rooms:[{room:'101',villa:'GV-01',cat:'Kenyan',cap:4,occ:3},{room:'102',villa:'GV-01',cat:'Sudanese',cap:4,occ:2},{room:'202',villa:'GV-02',cat:'Asian',cap:4,occ:1},{room:'301',villa:'GV-03',cat:'Kenyan',cap:4,occ:3},{room:'302',villa:'GV-03',cat:'Sudanese',cap:4,occ:2},{room:'402',villa:'GV-04',cat:'Asian',cap:4,occ:2}],complaints:[{ref:'INC-1042',issue:'Gate access concern',by:'Gate A Guard',priority:'High',status:'Open',date:'02 Oct 2026'},{ref:'INC-1041',issue:'Room maintenance request',by:'Resident',priority:'Normal',status:'Open',date:'02 Oct 2026'}],ann:[{title:'Security briefing',msg:'All guards should attend the evening security briefing at 18:00.',date:'02 Oct 2026'}],requests:[{q:'Room transfer',by:'Resident 204',cat:'Accommodation',pri:'Normal',status:'Pending'}],activity:['Guard 1002 checked in at Villa Zone','3 spaces released for allocation','Incident INC-1042 marked High priority','Accommodation report updated']};let d=JSON.parse(localStorage.getItem(K)||'null')||base;
+const API_BASE='https://al-nasr-backend.onrender.com';
+let authToken=sessionStorage.getItem('authToken')||'';
+let saveTimer=null;
+async function api(path,options={}){
+ const headers={'Content-Type':'application/json',...(options.headers||{})};
+ if(authToken)headers.Authorization='Bearer '+authToken;
+ const response=await fetch(API_BASE+path,{...options,headers});
+ let payload={};try{payload=await response.json()}catch(_){payload={}}
+ if(!response.ok)throw new Error(payload.error||payload.message||('Request failed ('+response.status+')'));
+ return payload;
+}
+function normalizeState(){
+ d.guards=(d.guards||[]).map(x=>({...x,no:String(x.no||'').replace(/^G-/i,''),shift:x.shift||'Shift A',room:x.room||'Not assigned',area:x.area||'Aspire Zone'}));
+ d.documents=d.documents||[];d.notifications=d.notifications||[];d.alertSettings=d.alertSettings||{sound:true,vibrate:true};
+ d.messages=d.messages||[];d.staffReports=d.staffReports||[];d.readReports=d.readReports||{};
+ d.spaces=d.spaces||[];d.rooms=d.rooms||[];d.complaints=d.complaints||[];d.ann=d.ann||[];d.requests=d.requests||[];d.activity=d.activity||[];
+}
+async function refreshCentralState(initializeIfEmpty=false){
+ const result=await api('/api/state');
+ if(result.state){d={...base,...result.state,guards:result.guards||[]};}
+ else if(initializeIfEmpty&&user&&user.role==='CampBoss'){
+  const initial={...d};const legacyGuards=hadLocalState?(initial.guards||[]):[];delete initial.guards;
+  await api('/api/state',{method:'PUT',body:JSON.stringify({state:initial,legacyGuards})});
+  const again=await api('/api/state');d={...base,...(again.state||{}),guards:again.guards||[]};
+ }else{d={...base,guards:result.guards||[]};}
+ normalizeState();
+ // Replace any old device-only cache with the centrally loaded, password-free records.
+ try{localStorage.setItem(K,JSON.stringify(d));}catch(_){}
+}
+const K='alnasr-v3';let hadLocalState=!!localStorage.getItem(K);const base={guards:[{name:'Mohammed Hassan',no:'1001',phone:'+254 711 111 111',area:'Gate A',status:'Active',password:'demo123',nid:'1',shift:'Shift A',room:'GV-01 / Room 101'},{name:'Abdi Omar',no:'1002',phone:'+254 722 222 222',area:'Villa Zone',status:'Active',password:'demo123',nid:'2',shift:'Shift B',room:'GV-02 / Room 202'}],spaces:[{name:'Kenyan Spaces',flag:'🇰🇪',total:55,occupied:31},{name:'Sudanese Spaces',flag:'🇸🇩',total:35,occupied:20},{name:'Asian Spaces',flag:'🌏',total:30,occupied:18}],rooms:[{room:'101',villa:'GV-01',cat:'Kenyan',cap:4,occ:3},{room:'102',villa:'GV-01',cat:'Sudanese',cap:4,occ:2},{room:'202',villa:'GV-02',cat:'Asian',cap:4,occ:1},{room:'301',villa:'GV-03',cat:'Kenyan',cap:4,occ:3},{room:'302',villa:'GV-03',cat:'Sudanese',cap:4,occ:2},{room:'402',villa:'GV-04',cat:'Asian',cap:4,occ:2}],complaints:[{ref:'INC-1042',issue:'Gate access concern',by:'Gate A Guard',priority:'High',status:'Open',date:'02 Oct 2026'},{ref:'INC-1041',issue:'Room maintenance request',by:'Resident',priority:'Normal',status:'Open',date:'02 Oct 2026'}],ann:[{title:'Security briefing',msg:'All guards should attend the evening security briefing at 18:00.',date:'02 Oct 2026'}],requests:[{q:'Room transfer',by:'Resident 204',cat:'Accommodation',pri:'Normal',status:'Pending'}],activity:['Guard 1002 checked in at Villa Zone','3 spaces released for allocation','Incident INC-1042 marked High priority','Accommodation report updated']};let d=JSON.parse(localStorage.getItem(K)||'null')||base;
 d.guards=(d.guards||[]).map(x=>({...x,no:String(x.no||'').replace(/^G-/i,''),shift:x.shift||'Shift A',room:x.room||'Not assigned',password:x.password||''}));
 d.guards=d.guards.map(x=>({...x,area:x.area||'Aspire Zone'}));
 d.documents=d.documents||[];
@@ -336,60 +365,39 @@ d.rooms=(d.rooms||[]).filter(x=>String(x.cat||'').toLowerCase()!=='argentine');
 let user=null,filter='',lastNotificationSignature='';
 
 function $(id){return document.getElementById(id)}
-function save(){localStorage.setItem(K,JSON.stringify(d))}function authTab(t){document.getElementById('le').classList.add('hide');document.getElementById('re').classList.add('hide');$('lf').classList.toggle('hide',t!=='login');$('rf').classList.toggle('hide',t!=='register');$('lt').classList.toggle('on',t==='login');$('rt').classList.toggle('on',t==='register')}function err(id,s){let e=document.getElementById(id);e.textContent=s;e.classList.remove('hide')}function register(e){
+function save(){
+ try{localStorage.setItem(K,JSON.stringify(d));}catch(_){}
+ if(!user||!authToken)return;
+ clearTimeout(saveTimer);
+ saveTimer=setTimeout(async()=>{
+  try{const state={...d};delete state.guards;await api('/api/state',{method:'PUT',body:JSON.stringify({state})});}
+  catch(e){console.error('Central save failed:',e.message);toast('Could not sync to the server. Check your connection.');}
+ },350);
+}function authTab(t){document.getElementById('le').classList.add('hide');document.getElementById('re').classList.add('hide');$('lf').classList.toggle('hide',t!=='login');$('rf').classList.toggle('hide',t!=='register');$('lt').classList.toggle('on',t==='login');$('rt').classList.toggle('on',t==='register')}function err(id,s){let e=document.getElementById(id);e.textContent=s;e.classList.remove('hide')}async function register(e){
  e.preventDefault();
- const name=$('rn').value.trim(), phone=$('rp').value.trim(), nid=$('ri').value.trim();
- const number=$('rg').value.trim(), password=$('rpass').value, confirm=$('rpass2').value;
- const areaSelect=$('ra').value, otherArea=$('rother').value.trim();
+ const name=$('rn').value.trim(),phone=$('rp').value.trim(),nid=$('ri').value.trim();
+ const number=$('rg').value.trim(),password=$('rpass').value,confirm=$('rpass2').value;
+ const areaSelect=$('ra').value,otherArea=$('rother').value.trim();
  const area=areaSelect==='Other'?(otherArea||'Other'):areaSelect;
- const shiftSelect=$('rshift').value, customShift=$('rcustom').value.trim();
- const shift=shiftSelect==='Other'?(customShift||'Other'):shiftSelect;
- const room=$('rroom').value.trim();
-
+ const shiftSelect=$('rshift').value,customShift=$('rcustom').value.trim();
+ const shift=shiftSelect==='Other'?(customShift||'Other'):shiftSelect;const room=$('rroom').value.trim();
  if(!/^\d+$/.test(number)){err('re','Company Job Number must contain numbers only, for example 1234.');return;}
  if(password!==confirm){err('re','Passwords do not match.');return;}
- if(d.guards.some(x=>String(x.no).trim()===number)){err('re','That company job number already exists.');return;}
-
- d.guards.push({name,no:number,phone,area,status:'Active',password,nid,shift,room});
- save();
- addNotification('New guard registered','A new guard account has been created.','all');
- $('role').value='guard'; $('lid').value=number; $('lp').value='';
- e.target.reset(); $('rother').classList.add('hide'); $('rcustom').classList.add('hide');
- toast('Guard account created. Sign in using your company job number and password.');
- setTimeout(()=>authTab('login'),300);
+ if(password.length<6){err('re','Password must be at least 6 characters.');return;}
+ try{
+  await api('/api/auth/register',{method:'POST',body:JSON.stringify({name,phone,nid,no:number,password,area,shift,room})});
+  $('role').value='guard';$('lid').value=number;$('lp').value='';e.target.reset();$('rother').classList.add('hide');$('rcustom').classList.add('hide');
+  toast('Guard account created. Sign in using your company job number and password.');setTimeout(()=>authTab('login'),300);
+ }catch(error){err('re',error.message||'Registration failed. Please try again.');}
 }
-function handleLogin(e){
- e.preventDefault();
- const selectedRole=document.getElementById('role').value;
- const jobNumber=document.getElementById('lid').value.trim();
- const password=document.getElementById('lp').value;
- document.getElementById('le').classList.add('hide');
-
- if(selectedRole==='boss'){
-   if(jobNumber==='3878' && password==='CampBoss@2026'){
-     start({name:'CampBoss',role:'CampBoss',area:'Administration',no:'3878'});
-     return;
-   }
-   err('le','Invalid CampBoss credentials.');
-   return;
- }
-
- const guard=d.guards.find(x =>
-   String(x.no).trim().toLowerCase()===jobNumber.toLowerCase() &&
-   String(x.password)===password
- );
-
- if(!guard){
-   err('le','Company Job Number or password is incorrect.');
-   return;
- }
-
- start({
-   name:guard.name,
-   role:'Security Guard',
-   area:guard.area,
-   no:guard.no
- });
+async function handleLogin(e){
+ e.preventDefault();const selectedRole=$('role').value,jobNumber=$('lid').value.trim(),password=$('lp').value;
+ $('le').classList.add('hide');
+ try{
+  const result=await api('/api/auth/login',{method:'POST',body:JSON.stringify({role:selectedRole,jobNumber,password})});
+  authToken=result.token;sessionStorage.setItem('authToken',authToken);user=result.user;sessionStorage.setItem('user',JSON.stringify(user));
+  await refreshCentralState(isBoss());start(user);
+ }catch(error){err('le',error.message||'Sign in failed. Please check your details and try again.');}
 }
 function start(u){
  user=u;sessionStorage.user=JSON.stringify(u);
@@ -419,7 +427,7 @@ if(document.getElementById('inboxBtn')) document.getElementById('inboxBtn').styl
  render();
  go(boss?'dashboard':'myaccount');
 }
-function logout(){sessionStorage.clear();location.reload()}function go(p,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById('p-'+p).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');$('title').textContent=p==='dashboard'?'Command Dashboard':p[0].toUpperCase()+p.slice(1).replace('-', ' ');$('side').classList.remove('open');render()}function openM(x){document.getElementById('m-'+x).classList.add('on');if(x==='room')$('rv').innerHTML=['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(x=>'<option>'+x+'</option>').join('')}function closeM(x){const m=$('m-'+x);if(m)m.classList.remove('on')}function toast(s){let x=document.createElement('div');x.className='toast';x.textContent=s;document.body.appendChild(x);setTimeout(()=>x.remove(),2200)}function totals(){let t=d.spaces.reduce((a,x)=>a+x.total,0),o=d.spaces.reduce((a,x)=>a+x.occupied,0);return[t,o,t-o]}function sc(x){let a=x.total-x.occupied,p=Math.round(x.occupied/x.total*100);return `<div class="space"><div class="flag">${x.flag}</div><h4>${x.name}</h4><small>Accommodation capacity</small><div class="big">${a}</div><div class="meta"><span>Available</span><span>${x.occupied}/${x.total} occupied</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}function villas(){return ['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(v=>{let r=d.rooms.filter(x=>x.villa===v),c=r.reduce((a,x)=>a+x.cap,0),o=r.reduce((a,x)=>a+x.occ,0);return{v,r,c,o}})}function vc(x){let p=x.c?Math.round(x.o/x.c*100):0;return `<div class="villa" onclick="filterRooms('${x.v}')"><strong>${x.v}</strong><small>${x.r.length} rooms • ${x.c} beds</small><div class="bar"><i style="width:${p}%"></i></div><b>${x.o} occupied • ${x.c-x.o} free</b></div>`}function render(){
+function logout(){authToken='';sessionStorage.clear();location.reload()}function go(p,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById('p-'+p).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');$('title').textContent=p==='dashboard'?'Command Dashboard':p[0].toUpperCase()+p.slice(1).replace('-', ' ');$('side').classList.remove('open');render()}function openM(x){document.getElementById('m-'+x).classList.add('on');if(x==='room')$('rv').innerHTML=['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(x=>'<option>'+x+'</option>').join('')}function closeM(x){const m=$('m-'+x);if(m)m.classList.remove('on')}function toast(s){let x=document.createElement('div');x.className='toast';x.textContent=s;document.body.appendChild(x);setTimeout(()=>x.remove(),2200)}function totals(){let t=d.spaces.reduce((a,x)=>a+x.total,0),o=d.spaces.reduce((a,x)=>a+x.occupied,0);return[t,o,t-o]}function sc(x){let a=x.total-x.occupied,p=Math.round(x.occupied/x.total*100);return `<div class="space"><div class="flag">${x.flag}</div><h4>${x.name}</h4><small>Accommodation capacity</small><div class="big">${a}</div><div class="meta"><span>Available</span><span>${x.occupied}/${x.total} occupied</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`}function villas(){return ['GV-01','GV-02','GV-03','GV-04','GV-05','GV-06','GV-07','GV-08','GV-09'].map(v=>{let r=d.rooms.filter(x=>x.villa===v),c=r.reduce((a,x)=>a+x.cap,0),o=r.reduce((a,x)=>a+x.occ,0);return{v,r,c,o}})}function vc(x){let p=x.c?Math.round(x.o/x.c*100):0;return `<div class="villa" onclick="filterRooms('${x.v}')"><strong>${x.v}</strong><small>${x.r.length} rooms • ${x.c} beds</small><div class="bar"><i style="width:${p}%"></i></div><b>${x.o} occupied • ${x.c-x.o} free</b></div>`}function render(){
  let[t,o,a]=totals();
  $('total').textContent=t;$('occ').textContent=o;$('avail').textContent=a;
  document.getElementById('openCount').textContent=d.complaints.filter(x=>x.status==='Open').length;
@@ -450,21 +458,17 @@ function renderRooms(){
  $('roomTable').innerHTML=rows.map((x,i)=>`<tr><td>${x.room}</td><td>${x.villa}</td><td>${x.cat}</td><td>${x.cap}</td><td>${x.occ}/${x.cap}</td><td><span class="badge ${x.occ>=x.cap?'red':''}">${x.occ>=x.cap?'Full':'Available'}</span></td><td>${user?.role==='CampBoss'?`<button class="btn danger" onclick="deleteRoom(${d.rooms.indexOf(x)})">Delete</button>`:''}</td></tr>`).join('');
 }
 function filterRooms(v){filter=v;go('villas')}
-function addGuard(e){
- e.preventDefault();
- if(!isBoss())return toast('Only CampBoss can register staff.');
- const name=$('gn').value.trim(), no=$('gno').value.trim(), phone=$('gp').value.trim();
- const nid=$('gnid').value.trim(), password=$('gpass').value;
- const areaSel=$('ga').value, area=areaSel==='Other'?($('gother').value.trim()||'Other'):areaSel;
- const shiftSel=$('gshift').value, shift=shiftSel==='Other'?($('gcustom').value.trim()||'Other'):shiftSel;
- const room=$('groom').value.trim();
+async function addGuard(e){
+ e.preventDefault();if(!isBoss())return toast('Only Camp Boss or Management can register staff.');
+ const name=$('gn').value.trim(),no=$('gno').value.trim(),phone=$('gp').value.trim(),nid=$('gnid').value.trim(),password=$('gpass').value;
+ const areaSel=$('ga').value,area=areaSel==='Other'?($('gother').value.trim()||'Other'):areaSel;
+ const shiftSel=$('gshift').value,shift=shiftSel==='Other'?($('gcustom').value.trim()||'Other'):shiftSel;const room=$('groom').value.trim();
  if(!/^\d+$/.test(no))return toast('Company Job Number must contain numbers only, for example 1234.');
  if(password.length<6)return toast('Guard password must be at least 6 characters.');
- if(d.guards.some(x=>String(x.no).trim()===no))return toast('That company job number already exists.');
- d.guards.push({name,no,phone,area,status:'Active',password,nid,shift,room});
- save(); addNotification('New guard registered',name+' was added with company job number '+no+'.','all');
- closeM('guard');e.target.reset();$('gother').classList.add('hide');$('gcustom').classList.add('hide');
- render();toast('Guard registered successfully.');
+ try{
+  await api('/api/staff',{method:'POST',body:JSON.stringify({name,no,phone,nid,password,area,shift,room})});
+  await refreshCentralState(false);closeM('guard');e.target.reset();$('gother').classList.add('hide');$('gcustom').classList.add('hide');render();toast('Staff registered and saved centrally.');
+ }catch(error){toast(error.message||'Could not register staff.');}
 }
 function addSpace(e){e.preventDefault();const category=$('sc').value;const amount=$('sn').value;let x=d.spaces.find(x=>x.name===category);if(x)x.total+=+amount;else d.spaces.push({name:category,flag:'•',total:+amount,occupied:0});save();addNotification('Space capacity updated','Accommodation capacity was updated.','all');closeM('space');e.target.reset();render();toast('Capacity added')}function addRoom(e){e.preventDefault();d.rooms.push({room:$('rno').value,villa:$('rv').value,cat:$('rc').value,cap:+$('rnum').value,occ:0});save();addNotification('Room added','A new room was added to camp accommodation.','all');closeM('room');e.target.reset();render();toast('Room added')}function addComplaint(e){e.preventDefault();d.complaints.unshift({ref:'INC-'+(1043+d.complaints.length),issue:$('ci').value,by:$('cb').value,priority:$('cp').value,status:'Open',date:new Date().toLocaleDateString('en-GB')});save();addNotification('🔔 New incident report',$('ci').value+' was submitted.','all');closeM('complaint');e.target.reset();render();toast('Report submitted')}function addAnnouncement(e){e.preventDefault();d.ann.unshift({title:$('at').value,msg:$('am').value,date:new Date().toLocaleDateString('en-GB')});save();addNotification('🔔 New Camp Broadcast',at.value+' has been published.','all');closeM('announcement');e.target.reset();render();toast('Broadcast published and sent to the notification bell')}function addRequest(e){e.preventDefault();const byNo=isBoss()?'':(user?.no||'');const by=$('qb').value.trim();d.requests.unshift({id:'REQ-'+Date.now(),q:$('qq').value,by,byNo,cat:$('qc').value,pri:$('qp').value,status:'Pending',message:$('qq').value,response:'',date:new Date().toLocaleString('en-GB')});save();if(isBoss())addNotification('New camp request',$('qq').value+' was submitted.','all');else addNotification('New camp request',$('qq').value+' was submitted to CampBoss.','3878');closeM('request');e.target.reset();render();toast('Request submitted')}
 
@@ -480,8 +484,8 @@ function toggleCustomShift(selectId,inputId){
  i.classList.toggle('hide',s.value!=='Other');
  if(s.value!=='Other')i.value='';
 }
-function isBoss(){return user?.role==='CampBoss'}
-function deleteGuard(no){if(!isBoss())return toast('CampBoss permission required');if(!confirm('Delete staff '+no+'?'))return;d.guards=d.guards.filter(x=>x.no!==no);save();render();toast('Staff deleted')}
+function isBoss(){return user?.role==='CampBoss'||user?.role==='Management'}
+async function deleteGuard(no){if(!isBoss())return toast('Camp Boss or Management permission required');if(!confirm('Delete staff '+no+'?'))return;try{await api('/api/staff/'+encodeURIComponent(no),{method:'DELETE'});await refreshCentralState(false);render();toast('Staff deleted from the central register.')}catch(e){toast(e.message||'Could not delete staff.')}}
 function deleteSpace(i){if(!isBoss())return;if(!confirm('Delete this space category?'))return;d.spaces.splice(i,1);save();render();toast('Space category deleted')}
 function deleteRoom(i){if(!isBoss())return;if(!confirm('Delete this room?'))return;d.rooms.splice(i,1);save();render();toast('Room deleted')}
 function deleteComplaint(i){if(!isBoss())return;if(!confirm('Delete this report?'))return;d.complaints.splice(i,1);save();render();toast('Report deleted')}
@@ -854,30 +858,36 @@ function initAILogo(){
  if(source&&source.src)target.src=source.src;
  else {target.style.display='none';}
 }
-function pollNotifications(){
- if(!user)return;
- const fresh=JSON.parse(localStorage.getItem(K)||'null');if(!fresh)return;
- d=fresh;d.guards=(d.guards||[]).map(x=>({...x,shift:x.shift||'Shift A',room:x.room||'Not assigned'}));d.documents=d.documents||[];d.notifications=d.notifications||[];d.alertSettings=d.alertSettings||{sound:true,vibrate:true};
-d.messages=d.messages||[];d.staffReports=d.staffReports||[];d.readReports=d.readReports||{};d.documents=d.documents||[];
- const ns=visibleNotifications();const sig=ns.map(x=>x.id).join('|');
- if(lastNotificationSignature && sig!==lastNotificationSignature){const freshNote=ns.find(n=>!lastNotificationSignature.split('|').includes(n.id));if(freshNote)triggerAlert(freshNote);}
- lastNotificationSignature=sig;renderNotifications();renderDocuments();renderMessageUsers();renderStaffReports();
+async function pollNotifications(){
+ if(!user||!authToken)return;
+ try{
+  const before=lastNotificationSignature;await refreshCentralState(false);
+  const ns=visibleNotifications(),sig=ns.map(x=>x.id).join('|');
+  if(before&&sig!==before){const freshNote=ns.find(n=>!before.split('|').includes(n.id));if(freshNote)triggerAlert(freshNote);}
+  lastNotificationSignature=sig;renderNotifications();renderDocuments();renderMessageUsers();renderStaffReports();
+ }catch(e){if(e.message&&/token|unauthorized|expired/i.test(e.message)){sessionStorage.clear();location.reload();}}
 }
-setInterval(pollNotifications,3000);
+setInterval(pollNotifications,10000);
 window.addEventListener('error',function(e){console.error('Portal error:',e.error||e.message);});
 window.addEventListener('unhandledrejection',function(e){console.error('Portal rejection:',e.reason);});
 
 
-addEventListener('load',()=>{initAILogo();if(sessionStorage.user){try{start(JSON.parse(sessionStorage.user))}catch(e){sessionStorage.clear()}}});
+addEventListener('load',async()=>{
+ initAILogo();
+ if(sessionStorage.user&&sessionStorage.authToken){
+  try{const me=await api('/api/me');user=me.user;sessionStorage.user=JSON.stringify(user);await refreshCentralState(false);start(user);}
+  catch(e){sessionStorage.clear();authToken='';}
+ }
+});
 
 /* AI reliability patch */
 let aiLanguage='en', aiReg={active:false,step:0,data:{},confirm:false};
 const aiQ={en:['What is the staff member’s full name?','What is the company job number?','What is the mobile number?','What is the National / Staff ID?','What is the nationality?','What is the work location?','What shift should be assigned?','What is the sleeping room?','Set a temporary password (minimum 6 characters).'],hi:['स्टाफ का पूरा नाम क्या है?','कंपनी जॉब नंबर क्या है?','मोबाइल नंबर क्या है?','नेशनल / स्टाफ आईडी क्या है?','राष्ट्रीयता क्या है?','कार्य स्थान क्या है?','कौन-सी शिफ्ट देनी है?','सोने का कमरा कौन-सा है?','अस्थायी पासवर्ड दें (कम से कम 6 अक्षर)।'],bn:['স্টাফের পূর্ণ নাম কী?','কোম্পানি জব নম্বর কী?','মোবাইল নম্বর কী?','ন্যাশনাল / স্টাফ আইডি কী?','জাতীয়তা কী?','কাজের স্থান কী?','কোন শিফট দিতে হবে?','ঘুমানোর রুম কোনটি?','অস্থায়ী পাসওয়ার্ড দিন (কমপক্ষে ৬ অক্ষর)।'],ne:['कर्मचारीको पूरा नाम के हो?','कम्पनी जागिर नम्बर के हो?','मोबाइल नम्बर के हो?','राष्ट्रिय / कर्मचारी आईडी के हो?','राष्ट्रियता के हो?','काम गर्ने स्थान के हो?','कुन शिफ्ट दिने?','सुत्ने कोठा कुन हो?','अस्थायी पासवर्ड दिनुहोस् (कम्तीमा ६ अक्षर)।'],ar:['ما الاسم الكامل للموظف؟','ما رقم الوظيفة؟','ما رقم الهاتف المحمول؟','ما رقم الهوية الوطنية / الموظف؟','ما الجنسية؟','ما موقع العمل؟','ما الوردية؟','ما غرفة السكن؟','ضع كلمة مرور مؤقتة (6 أحرف على الأقل).']};
-const aiMsg={en:{set:'Language set to English.',start:'I will register the new staff member step by step.',confirm:'Reply “confirm” to create this staff record, or “cancel” to stop.',saved:'Staff account created successfully.',cancel:'Registration cancelled.',perm:'Only CampBoss can register staff.',missing:'I could not find that job number in the current portal records.'},hi:{set:'भाषा हिंदी पर सेट है।',start:'मैं नए स्टाफ सदस्य का पंजीकरण चरण-दर-चरण करूंगा।',confirm:'रिकॉर्ड बनाने के लिए “confirm” और रोकने के लिए “cancel” लिखें।',saved:'स्टाफ खाता सफलतापूर्वक बनाया गया।',cancel:'पंजीकरण रद्द किया गया।',perm:'नया स्टाफ केवल CampBoss पंजीकृत कर सकता है।',missing:'मौजूदा पोर्टल रिकॉर्ड में यह जॉब नंबर नहीं मिला।'},bn:{set:'ভাষা বাংলা সেট করা হয়েছে।',start:'আমি ধাপে ধাপে নতুন স্টাফ নিবন্ধন করব।',confirm:'তৈরি করতে “confirm” এবং বন্ধ করতে “cancel” লিখুন।',saved:'স্টাফ অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে।',cancel:'নিবন্ধন বাতিল করা হয়েছে।',perm:'নতুন স্টাফ শুধু CampBoss নিবন্ধন করতে পারেন।',missing:'বর্তমান পোর্টাল রেকর্ডে এই জব নম্বর পাওয়া যায়নি।'},ne:{set:'भाषा नेपालीमा सेट गरिएको छ।',start:'म नयाँ कर्मचारीलाई चरणबद्ध रूपमा दर्ता गर्नेछु।',confirm:'बनाउन “confirm” र रोक्न “cancel” लेख्नुहोस्।',saved:'कर्मचारी खाता सफलतापूर्वक बनाइयो।',cancel:'दर्ता रद्द गरियो।',perm:'नयाँ कर्मचारी केवल CampBoss ले दर्ता गर्न सक्छ।',missing:'हालको पोर्टलमा यो जागिर नम्बर भेटिएन।'},ar:{set:'تم ضبط اللغة على العربية.',start:'سأقوم بتسجيل الموظف الجديد خطوة بخطوة.',confirm:'اكتب “confirm” للإنشاء أو “cancel” للإلغاء.',saved:'تم إنشاء حساب الموظف بنجاح.',cancel:'تم إلغاء التسجيل.',perm:'فقط CampBoss يمكنه تسجيل الموظفين.',missing:'لم أجد رقم الوظيفة هذا في سجلات البوابة الحالية.'}};
+const aiMsg={en:{set:'Language set to English.',start:'I will register the new staff member step by step.',confirm:'Reply “confirm” to create this staff record, or “cancel” to stop.',saved:'Staff account created successfully.',cancel:'Registration cancelled.',perm:'Only Camp Boss or Management can register staff.',missing:'I could not find that job number in the current portal records.'},hi:{set:'भाषा हिंदी पर सेट है।',start:'मैं नए स्टाफ सदस्य का पंजीकरण चरण-दर-चरण करूंगा।',confirm:'रिकॉर्ड बनाने के लिए “confirm” और रोकने के लिए “cancel” लिखें।',saved:'स्टाफ खाता सफलतापूर्वक बनाया गया।',cancel:'पंजीकरण रद्द किया गया।',perm:'नया स्टाफ केवल CampBoss पंजीकृत कर सकता है।',missing:'मौजूदा पोर्टल रिकॉर्ड में यह जॉब नंबर नहीं मिला।'},bn:{set:'ভাষা বাংলা সেট করা হয়েছে।',start:'আমি ধাপে ধাপে নতুন স্টাফ নিবন্ধন করব।',confirm:'তৈরি করতে “confirm” এবং বন্ধ করতে “cancel” লিখুন।',saved:'স্টাফ অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে।',cancel:'নিবন্ধন বাতিল করা হয়েছে।',perm:'নতুন স্টাফ শুধু CampBoss নিবন্ধন করতে পারেন।',missing:'বর্তমান পোর্টাল রেকর্ডে এই জব নম্বর পাওয়া যায়নি।'},ne:{set:'भाषा नेपालीमा सेट गरिएको छ।',start:'म नयाँ कर्मचारीलाई चरणबद्ध रूपमा दर्ता गर्नेछु।',confirm:'बनाउन “confirm” र रोक्न “cancel” लेख्नुहोस्।',saved:'कर्मचारी खाता सफलतापूर्वक बनाइयो।',cancel:'दर्ता रद्द गरियो।',perm:'नयाँ कर्मचारी केवल CampBoss ले दर्ता गर्न सक्छ।',missing:'हालको पोर्टलमा यो जागिर नम्बर भेटिएन।'},ar:{set:'تم ضبط اللغة على العربية.',start:'سأقوم بتسجيل الموظف الجديد خطوة بخطوة.',confirm:'اكتب “confirm” للإنشاء أو “cancel” للإلغاء.',saved:'تم إنشاء حساب الموظف بنجاح.',cancel:'تم إلغاء التسجيل.',perm:'فقط CampBoss يمكنه تسجيل الموظفين.',missing:'لم أجد رقم الوظيفة هذا في سجلات البوابة الحالية.'}};
 function setAILanguage(v){aiLanguage=aiMsg[v]?v:'en';let s=document.getElementById('aiLanguage');if(s)s.value=aiLanguage;addAI('bot',aiMsg[aiLanguage].set)}
 function aiStartRegistration(){if(!isBoss()){addAI('bot',aiMsg[aiLanguage].perm);return}aiReg={active:true,step:0,data:{},confirm:false};addAI('bot',aiMsg[aiLanguage].start);addAI('bot',aiQ[aiLanguage][0])}
 function aiSummary(x){let l=['Full name','Job number','Mobile','National / Staff ID','Nationality','Work location','Shift','Sleeping room','Temporary password'];return l.map((k,i)=>k+': '+x[['name','no','phone','nid','nationality','area','shift','room','password'][i]]).join('\n')}
-function aiRegister(q){let z=q.trim(),lo=z.toLowerCase();if(lo==='cancel'||lo==='stop'){aiReg={active:false,step:0,data:{},confirm:false};return aiMsg[aiLanguage].cancel}if(aiReg.confirm){if(['confirm','yes','save','create','ok','okay'].includes(lo)){let x=aiReg.data;if(d.guards.some(g=>String(g.no)===String(x.no)))return 'That company job number already exists.';if(user&&String(user.no)===String(x.no))return 'That job number belongs to the current account. Use another number.';d.guards.push({name:x.name,no:String(x.no),phone:x.phone,area:x.area||'Not recorded',status:'Active',password:x.password,nid:x.nid,nationality:x.nationality||'Not recorded',shift:x.shift||'Not assigned',room:x.room||'Not assigned'});save();try{addNotification('New staff registered',x.name+' ('+x.no+') was registered through AI Assist.','all')}catch(e){}aiReg={active:false,step:0,data:{},confirm:false};return aiMsg[aiLanguage].saved+'\n\n'+aiSummary(x)}return aiMsg[aiLanguage].confirm}
+function aiRegister(q){let z=q.trim(),lo=z.toLowerCase();if(lo==='cancel'||lo==='stop'){aiReg={active:false,step:0,data:{},confirm:false};return aiMsg[aiLanguage].cancel}if(aiReg.confirm){if(['confirm','yes','save','create','ok','okay'].includes(lo)){let x=aiReg.data;if(d.guards.some(g=>String(g.no)===String(x.no)))return 'That company job number already exists.';if(user&&String(user.no)===String(x.no))return 'That job number belongs to the current account. Use another number.';api(isBoss()?'/api/staff':'/api/auth/register',{method:'POST',body:JSON.stringify({name:x.name,no:String(x.no),phone:x.phone,area:x.area||'Not recorded',nid:x.nid,nationality:x.nationality||'Not recorded',shift:x.shift||'Not assigned',room:x.room||'Not assigned',password:x.password})}).then(async()=>{await refreshCentralState(false);render();addAI('bot',aiMsg[aiLanguage].saved+'\n\n'+aiSummary(x));}).catch(e=>addAI('bot','Could not register staff: '+e.message));aiReg={active:false,step:0,data:{},confirm:false};return 'Submitting the staff registration securely to the central register…'}return aiMsg[aiLanguage].confirm}
 let fields=['name','no','phone','nid','nationality','area','shift','room','password'],f=fields[aiReg.step],v=z;if(f==='no'&&!/^\d+$/.test(v))return 'Job number must contain numbers only.';if(f==='phone'&&v.replace(/\D/g,'').length<7)return 'Please enter a valid mobile number.';if(f==='password'&&v.length<6)return 'Password must be at least 6 characters.';if(f==='no'&&d.guards.some(g=>String(g.no)===v))return 'That job number already exists. Enter another number.';aiReg.data[f]=v;aiReg.step++;if(aiReg.step<fields.length)return aiQ[aiLanguage][aiReg.step];aiReg.confirm=true;return aiSummary(aiReg.data)+'\n\n'+aiMsg[aiLanguage].confirm}
 function aiFindGuard(q){let s=String(q).toLowerCase(),m=s.match(/(?:job\s*(?:number)?|company\s*job|staff\s*(?:number|no)|number|id)\s*[:#-]?\s*(\d{2,})/i),n=(m&&m[1])||(s.match(/\b\d{2,}\b/)||[])[0];if(n){let g=d.guards.find(x=>String(x.no).replace(/^G-/i,'')===String(n));if(g)return g}let g=d.guards.find(x=>String(x.name||'').toLowerCase()===s);if(g)return g;let pd=s.replace(/\D/g,'');return pd.length>=7?d.guards.find(x=>String(x.phone||'').replace(/\D/g,'').includes(pd)):null}
 function aiAnswerGuard(s){let L={en:['Staff record found.','Full name','Company job number','Mobile number','Work location','Shift','Sleeping room','Nationality','National / Staff ID','Status'],hi:['स्टाफ रिकॉर्ड मिला।','पूरा नाम','कंपनी जॉब नंबर','मोबाइल नंबर','कार्य स्थान','शिफ्ट','सोने का कमरा','राष्ट्रीयता','नेशनल / स्टाफ आईडी','स्थिति'],bn:['স্টাফ রেকর্ড পাওয়া গেছে।','পূর্ণ নাম','কোম্পানি জব নম্বর','মোবাইল নম্বর','কাজের স্থান','শিফট','ঘুমানোর রুম','জাতীয়তা','ন্যাশনাল / স্টাফ আইডি','স্ট্যাটাস'],ne:['कर्मचारी रेकर्ड भेटियो।','पूरा नाम','कम्पनी जागिर नम्बर','मोबाइल नम्बर','काम गर्ने स्थान','शिफ्ट','सुत्ने कोठा','राष्ट्रियता','राष्ट्रिय / कर्मचारी आईडी','स्थिति'],ar:['تم العثور على سجل الموظف.','الاسم الكامل','رقم الوظيفة','رقم الهاتف','موقع العمل','الوردية','غرفة السكن','الجنسية','الهوية الوطنية / الموظف','الحالة']}[aiLanguage]||L.en;let v=[s.name,s.no,s.phone||'Not recorded',s.area||'Not recorded',s.shift||'Not recorded',s.room||'Not assigned',s.nationality||'Not recorded',s.nid||'Not recorded',s.status||'Not recorded'];return L[0]+'\n'+L.slice(1).map((x,i)=>x+': '+v[i]).join('\n')}
@@ -943,7 +953,7 @@ function askAI(e){
  addAI('bot',answer);if(navigated)setTimeout(()=>render(),50);
 }
 
-/* AI 2.0 SERVER MODE: replaces local rule matching with a real model + server tools. */
+/* Robot Assist SERVER MODE: replaces local rule matching with a real model + server tools. */
 let ai2History=[];
 async function askAI(e){
  if(e&&e.preventDefault)e.preventDefault();
@@ -951,7 +961,7 @@ async function askAI(e){
  addAI('me',q); if(input)input.value='';
  addAI('bot','⏳ Checking the secure portal database…');
  try{
-   const r=await fetch('https://al-nasr-backend.onrender.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});
+   const r=await fetch('https://al-nasr-backend.onrender.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+authToken},body:JSON.stringify({message:q})});
    const j=await r.json();
    const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
    const text = j.reply || j.answer || j.error || 'No response.';
@@ -960,7 +970,7 @@ async function askAI(e){
  }catch(err){
 
    const bubbles=document.querySelectorAll('#aiMessages .ai-msg'); const last=bubbles[bubbles.length-1];
-   const msg='AI 2.0 is not connected to its server yet. Start the backend and open this page through http://localhost:3000 (not as a file).';
+   const msg='Robot Assist is not connected to its server yet. Start the backend and open this page through http://localhost:3000 (not as a file).';
    if(last && last.textContent.includes('Checking the secure portal database')) last.textContent=msg; else addAI('bot',msg);
  }
 }
